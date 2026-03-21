@@ -1,0 +1,171 @@
+de:
+  title: "Services"
+  subtitle: "Massgeschneiderte Lösungen für **Ihren digitalen Erfolg**"
+  text: |
+    Von der Entwicklung massgeschneiderter Softwarelösungen bis hin zur Implementierung modernster Technologien – wir sind Ihr zuverlässiger Partner für digitale Innovationen. Unsere drei Kernbereiche **Applikationsentwicklung**, **Automatisierung** und **Testing & Qualitätssicherung** sind dabei keine isolierten Disziplinen – sie bauen aufeinander auf und ergänzen sich gegenseitig zu einer ganzheitlichen digitalen Strategie.
+
+    Eine moderne Applikation entsteht nicht im Vakuum. Sie braucht von Anfang an **automatisierte Prozesse**, die Builds, Tests und Deployments zuverlässig steuern – und eine **durchdachte Teststrategie**, die sicherstellt, dass Qualität kein Zufall ist. Erst das Zusammenspiel dieser drei Bereiche macht Software wirklich produktionsreif.
+
+    Die Zeiten, in denen eine Anwendung einmal entwickelt und dann zehn Jahre unverändert betrieben wurde, sind vorbei. Die Welt ist digitaler geworden, **Sicherheitsanforderungen steigen kontinuierlich**, und Technologien entwickeln sich in immer kürzeren Zyklen weiter. Wer seine Software nicht regelmässig pflegt, riskiert nicht nur Sicherheitslücken, sondern auch einen wachsenden technologischen Rückstand.
+
+    Dabei gilt: **Regelmässige Wartung ist fast immer günstiger als ein kompletter Neubau.** Wer Updates, Dependency-Pflege und kleine Modernisierungen laufend durchführt, hält die Kosten planbar und überschaubar. Eine vollständige Migration auf eine neue Technologie hingegen ist erfahrungsgemäss schwer abschätzbar – sowohl in Aufwand als auch in Risiko. Was als überschaubares Projekt beginnt, wird schnell zum Mammutprojekt, wenn über Jahre technische Schulden aufgelaufen sind.
+
+    Gemeinsam gestalten wir die digitale Zukunft Ihres Unternehmens – **nachhaltig, sicher und wirtschaftlich sinnvoll**.
+  chapters:
+    - name: "Applikationsentwicklung"
+      anchor: "applikationsentwicklung"
+      title: "Massgeschneiderte Software, die Ihr Unternehmen voranbringt"
+      image: "images/services-web-development.png"
+      # Bildempfehlung: Ein Foto eines modernen Entwicklerarbeitsplatzes mit mehreren Monitoren, Code auf dem Bildschirm, in einem hellen Büro. Alternativ: Ein abstraktes Bild mit Codezeilen und einem Blazor/.NET-Logo.
+      text: |
+        Wir entwickeln massgeschneiderte Softwarelösungen, die genau auf die Bedürfnisse Ihres Unternehmens zugeschnitten sind. Unser Team aus erfahrenen Entwicklern sorgt dafür, dass Ihre Anwendungen **effizient, zuverlässig und zukunftssicher** sind.
+
+        ### Zuhören, verstehen, mitdenken
+
+        Am Anfang jedes Projekts steht das **Zuhören**. Wir erfassen Ihre Anforderungen systematisch und erstellen eine fundierte Anforderungsanalyse, die als gemeinsame Grundlage für die gesamte Entwicklung dient. In einem offenen Gespräch besprechen wir diese Punkte mit Ihnen, hinterfragen gemeinsam Annahmen und entwickeln daraus eine Lösung, die wirklich zu Ihrem Unternehmen passt. Dabei bringen wir uns aktiv ein: Wir versetzen uns in Ihre Use-Cases, denken mit und geben Ihnen **ehrliche, praxisnahe Inputs**, die die Umsetzung einfacher, besser oder nachhaltiger machen.
+
+        ### Technologie mit Fokus
+
+        Technologisch sind wir spezialisiert auf das **.NET-Ökosystem** – mit besonderem Fokus auf **Blazor WebAssembly** und **Blazor Server**. Diese modernen Frameworks ermöglichen es uns, leistungsfähige, browserbasierte Anwendungen zu entwickeln, die ohne Kompromisse bei Performance oder Wartbarkeit auskommen. Für die Datenhaltung greifen wir je nach Anforderung auf **MSSQL** oder **PostgreSQL** zurück – beide Systeme setzen wir täglich produktiv ein.
+
+        ### Sicherheit von Anfang an
+
+        Sicherheit ist für uns keine nachträgliche Überlegung, sondern **Teil des Entwicklungsprozesses von Anfang an**. Durch den Einsatz von *DependencyTrack* im Rahmen unseres Vulnerability Managements behalten wir bekannte Schwachstellen in Abhängigkeiten kontinuierlich im Blick. Dass dieser Ansatz funktioniert, zeigen mehrere **erfolgreich bestandene Security-Audits** für Kundenapplikationen.
+
+        ### Entwicklung mit Sinn und Verstand
+
+        Wir entwickeln mit Sinn und Verstand – **nicht nach Profit**. Das bedeutet für uns: keine unnötige Komplexität, keine überdimensionierten Lösungen, und keine Technologien, die mehr Probleme schaffen als lösen. Wir empfehlen das, was für Ihr Projekt sinnvoll ist.
+
+        ### KI-gestützter Review-Prozess
+
+        Unser Review-Prozess ist bewusst mehrstufig aufgebaut und wird heute durch **KI-gestützte Tools** wie *Claude*, *GitHub Copilot* und *ChatGPT* ergänzt. Diese helfen uns, Code schneller und gründlicher zu prüfen, potenzielle Schwachstellen früher zu erkennen und die Codequalität auf einem konstant hohen Niveau zu halten. KI ersetzt dabei nicht das Denken – **sie schärft es**.
+
+        ### Agil und kundennah
+
+        Wir arbeiten nach den Prinzipien der **agilen Softwareentwicklung**. Anstatt monatelang an einer vermeintlich perfekten Lösung zu arbeiten, die am Ende an der Realität vorbeizielt, liefern wir früh, lernen schnell und verbessern kontinuierlich. Was Facebook einst mit *«Move fast and break things»* auf den Punkt brachte, übersetzen wir in eine strukturierte Praxis: **kurze Entwicklungszyklen, regelmässige Releases** und ein enger Austausch mit Ihnen als Kunde. So stellen wir sicher, dass die Entwicklung immer nah an Ihren tatsächlichen Bedürfnissen bleibt – und nicht an einem Anforderungsdokument vom ersten Tag.
+
+    - name: "Automatisierung"
+      anchor: "automatisierung"
+      title: "Prozesse automatisieren, Ressourcen gewinnen"
+      image: "images/services-automation.png"
+      # Bildempfehlung: Eine schematische Darstellung einer CI/CD-Pipeline mit verbundenen Zahnrädern oder Workflow-Knoten. Alternativ: Ein Dashboard mit Azure DevOps / GitHub Actions Pipelines.
+      text: |
+        Wir helfen Ihnen, Ihre Geschäftsprozesse zu automatisieren und dadurch **Zeit und Ressourcen zu sparen**. Unsere Lösungen sind darauf ausgelegt, Ihre Effizienz zu steigern und Fehlerquellen zu minimieren.
+
+        ### Verborgenes Potenzial erkennen
+
+        Oft steckt das grösste Sparpotenzial in Prozessen, die täglich still im Hintergrund laufen – und bei denen niemand mehr hinterfragt, ob sie so sein müssen. Wir helfen Ihnen, genau diese Prozesse zu analysieren, **Automatisierungspotenziale zu erkennen** und konkrete Massnahmen umzusetzen. Das Ziel ist nicht Automatisierung um der Automatisierung willen, sondern dort anzusetzen, wo **echte Zeit und Ressourcen** gewonnen werden können.
+
+        ### Bewährte Plattformen
+
+        Technisch setzen wir dabei auf bewährte Plattformen wie **Azure DevOps** und **GitHub Actions** – zwei der leistungsfähigsten Werkzeuge für die Automatisierung von Softwareprozessen und darüber hinaus. Unsere eigenen Applikationen leben diesen Anspruch täglich: Vom *Git-Push* bis zur Auslieferung läuft bei uns alles **vollständig automatisiert** – inklusive automatisierter Tests, Vulnerability-Scans und Deployment-Pipelines. Was wir für uns selbst einsetzen, bauen wir auch für unsere Kunden.
+
+    - name: "Testing & Qualitätssicherung"
+      anchor: "testing-qualitaetssicherung"
+      title: "Qualität, die Vertrauen schafft"
+      image: "images/services-testing.png"
+      # Bildempfehlung: Ein Bildschirm mit grünen Test-Ergebnissen (alle Tests bestanden), eventuell mit Playwright- oder xUnit-Output. Alternativ: Ein abstraktes Bild mit Checklisten und Häkchen.
+      text: |
+        Wir sorgen dafür, dass Ihre Softwarelösungen **höchsten Qualitätsstandards** entsprechen. Durch umfassendes Testing und kontinuierliche Qualitätssicherung stellen wir sicher, dass Ihre Anwendungen zuverlässig und fehlerfrei funktionieren.
+
+        ### Testen mit Sinn und Verstand
+
+        Software zu testen ist aufwendig – und damit teuer. Die vollständige Abdeckung aller denkbaren Testfälle ist in der Praxis weder erreichbar noch sinnvoll angestrebt. Unser Ansatz ist ein anderer: Wir setzen automatisierte Tests **mit Sinn und Verstand** ein, fokussiert auf die Bereiche, wo Fehler den grössten Schaden anrichten würden. So stellen wir sicher, dass die wirklich kritischen Fehler gar nicht erst auftreten können – ohne das Budget für Vollständigkeit aufzuwenden, die keinen Mehrwert bringt.
+
+        ### Unsere Test-Toolbox
+
+        Für Unit-Tests setzen wir je nach Projektkontext auf **xUnit** oder **NUnit** – zwei etablierte Frameworks, die sich im .NET-Ökosystem seit Jahren bewährt haben. Blazor-Komponenten testen wir gezielt mit **bUnit**, einem spezialisierten Framework, das es ermöglicht, UI-Logik isoliert und reproduzierbar zu prüfen, ohne einen Browser zu benötigen. Wo einzelne Komponenten nicht ausreichen, kommen **Integrationstests** zum Einsatz, die das Zusammenspiel mehrerer Systemteile – etwa Datenbankzugriffe oder API-Endpunkte – unter realen Bedingungen überprüfen. Für End-to-End-Tests nutzen wir **Playwright**, das vollständige Nutzerinteraktionen im Browser automatisiert und damit die letzte Verteidigungslinie vor dem Release bildet.
+
+        ### Ship it and iterate
+
+        Das erlaubt uns, nach dem Prinzip *«Ship it and iterate»* zu arbeiten: früh ausliefern, auf echtes Feedback reagieren und kontinuierlich verbessern. Das klingt nach einem Widerspruch zur Qualitätssicherung – **ist es aber nicht**. Denn dieser Ansatz funktioniert nur dann verantwortungsvoll, wenn im Hintergrund solide automatisierte Tests laufen, die das Fundament absichern.
+
+        ### Alles greift ineinander
+
+        Damit schliesst sich der Kreis zu unserer Applikationsentwicklung und Automatisierung: Die Testinfrastruktur, die wir im Entwicklungsprozess aufbauen, und die CI/CD-Pipelines, die wir automatisieren, sind keine isolierten Massnahmen – sie **greifen ineinander** und bilden gemeinsam die Grundlage dafür, dass Sie schnell und trotzdem sicher vorankommen.
+
+fr:
+  title: "Services"
+  subtitle: "Des solutions sur mesure pour **votre succès numérique**"
+  text: |
+    Du développement de solutions logicielles sur mesure à l'implémentation des technologies les plus modernes – nous sommes votre partenaire fiable pour l'innovation numérique. Nos trois domaines clés – **Développement d'applications**, **Automatisation** et **Testing & Assurance qualité** – ne sont pas des disciplines isolées : ils s'appuient les uns sur les autres et se complètent mutuellement pour former une stratégie numérique globale.
+
+    Une application moderne ne naît pas dans le vide. Elle a besoin dès le départ de **processus automatisés** qui pilotent de manière fiable les builds, les tests et les déploiements – et d'une **stratégie de test réfléchie** qui garantit que la qualité n'est pas le fruit du hasard. C'est uniquement l'interaction de ces trois domaines qui rend un logiciel véritablement prêt pour la production.
+
+    L'époque où une application était développée une fois puis exploitée sans changement pendant dix ans est révolue. Le monde est devenu plus numérique, **les exigences en matière de sécurité augmentent continuellement**, et les technologies évoluent à des rythmes de plus en plus courts. Qui ne maintient pas régulièrement son logiciel risque non seulement des failles de sécurité, mais aussi un retard technologique croissant.
+
+    À cet égard : **La maintenance régulière est presque toujours moins coûteuse qu'une reconstruction complète.** Qui effectue en continu les mises à jour, la gestion des dépendances et les petites modernisations maintient les coûts prévisibles et maîtrisables. En revanche, une migration complète vers une nouvelle technologie est par expérience difficile à estimer – tant en effort qu'en risque. Ce qui commence comme un projet gérable devient rapidement un projet titanesque lorsque des dettes techniques se sont accumulées au fil des années.
+
+    Ensemble, nous façonnons l'avenir numérique de votre entreprise – **de manière durable, sûre et économiquement judicieuse**.
+  chapters:
+    - name: "Développement d'applications"
+      anchor: "applikationsentwicklung"
+      title: "Des logiciels sur mesure qui font avancer votre entreprise"
+      image: "images/services-web-development.png"
+      # Recommandation d'image: Photo d'un poste de travail de développeur moderne avec plusieurs écrans, du code à l'écran, dans un bureau lumineux. Alternative: image abstraite avec des lignes de code et un logo Blazor/.NET.
+      text: |
+        Nous développons des solutions logicielles sur mesure, adaptées exactement aux besoins de votre entreprise. Notre équipe de développeurs expérimentés veille à ce que vos applications soient **efficaces, fiables et pérennes**.
+
+        ### Écouter, comprendre, anticiper
+
+        Au début de chaque projet, il y a l'**écoute**. Nous recueillons vos exigences de manière systématique et établissons une analyse des besoins solide, servant de base commune pour l'ensemble du développement. Lors d'un échange ouvert, nous discutons de ces points avec vous, remettons en question les hypothèses et développons ensemble une solution qui correspond vraiment à votre entreprise. Nous nous impliquons activement : nous nous mettons à la place de vos cas d'utilisation, réfléchissons avec vous et vous donnons des **retours honnêtes et pragmatiques** qui rendent la mise en œuvre plus simple, meilleure ou plus durable.
+
+        ### Technologie ciblée
+
+        Technologiquement, nous sommes spécialisés dans l'**écosystème .NET** – avec un accent particulier sur **Blazor WebAssembly** et **Blazor Server**. Ces frameworks modernes nous permettent de développer des applications performantes basées sur navigateur, sans compromis sur la performance ou la maintenabilité. Pour le stockage des données, nous utilisons selon les besoins **MSSQL** ou **PostgreSQL** – deux systèmes que nous employons quotidiennement en production.
+
+        ### Sécurité dès le départ
+
+        La sécurité n'est pas une réflexion après coup pour nous, mais **fait partie intégrante du processus de développement dès le début**. Grâce à l'utilisation de *DependencyTrack* dans le cadre de notre gestion des vulnérabilités, nous surveillons en permanence les failles connues dans les dépendances. Plusieurs **audits de sécurité réussis** pour des applications clients prouvent l'efficacité de cette approche.
+
+        ### Développement raisonné
+
+        Nous développons avec bon sens – **pas pour le profit**. Cela signifie pour nous : pas de complexité inutile, pas de solutions surdimensionnées et pas de technologies qui créent plus de problèmes qu'elles n'en résolvent. Nous recommandons ce qui a du sens pour votre projet.
+
+        ### Processus de revue assisté par l'IA
+
+        Notre processus de revue est volontairement structuré en plusieurs étapes et est aujourd'hui complété par des **outils d'IA** tels que *Claude*, *GitHub Copilot* et *ChatGPT*. Ceux-ci nous aident à vérifier le code plus rapidement et plus en profondeur, à détecter les failles potentielles plus tôt et à maintenir la qualité du code à un niveau constamment élevé. L'IA ne remplace pas la réflexion – **elle l'affûte**.
+
+        ### Agile et proche du client
+
+        Nous travaillons selon les principes du **développement logiciel agile**. Au lieu de travailler pendant des mois sur une solution prétendument parfaite qui finit par manquer la réalité, nous livrons tôt, apprenons vite et améliorons continuellement. Ce que Facebook a résumé par *«Move fast and break things»*, nous le traduisons en une pratique structurée : **des cycles de développement courts, des releases régulières** et un échange étroit avec vous en tant que client. Ainsi, nous nous assurons que le développement reste toujours proche de vos besoins réels – et non d'un document d'exigences du premier jour.
+
+    - name: "Automatisation"
+      anchor: "automatisierung"
+      title: "Automatiser les processus, libérer les ressources"
+      image: "images/services-automation.png"
+      # Recommandation d'image: Représentation schématique d'un pipeline CI/CD avec des engrenages ou des nœuds de workflow connectés. Alternative: un tableau de bord avec des pipelines Azure DevOps / GitHub Actions.
+      text: |
+        Nous vous aidons à automatiser vos processus métier et ainsi **économiser du temps et des ressources**. Nos solutions sont conçues pour augmenter votre efficacité et minimiser les sources d'erreurs.
+
+        ### Détecter le potentiel caché
+
+        Souvent, le plus grand potentiel d'économie se trouve dans des processus qui tournent silencieusement en arrière-plan au quotidien – et que plus personne ne remet en question. Nous vous aidons à analyser exactement ces processus, à **identifier les potentiels d'automatisation** et à mettre en œuvre des mesures concrètes. L'objectif n'est pas l'automatisation pour l'automatisation, mais d'intervenir là où **du temps et des ressources réels** peuvent être gagnés.
+
+        ### Plateformes éprouvées
+
+        Techniquement, nous misons sur des plateformes éprouvées comme **Azure DevOps** et **GitHub Actions** – deux des outils les plus performants pour l'automatisation des processus logiciels et au-delà. Nos propres applications vivent cette exigence au quotidien : du *Git-Push* à la livraison, tout est chez nous **entièrement automatisé** – y compris les tests automatisés, les scans de vulnérabilités et les pipelines de déploiement. Ce que nous utilisons pour nous-mêmes, nous le construisons aussi pour nos clients.
+
+    - name: "Testing & Assurance qualité"
+      anchor: "testing-qualitaetssicherung"
+      title: "Une qualité qui inspire confiance"
+      image: "images/services-testing.png"
+      # Recommandation d'image: Un écran avec des résultats de tests verts (tous les tests réussis), éventuellement avec une sortie Playwright ou xUnit. Alternative: image abstraite avec des listes de contrôle et des coches.
+      text: |
+        Nous veillons à ce que vos solutions logicielles répondent aux **plus hauts standards de qualité**. Grâce à des tests complets et une assurance qualité continue, nous garantissons que vos applications fonctionnent de manière fiable et sans erreur.
+
+        ### Tester avec discernement
+
+        Tester un logiciel est coûteux – en temps comme en argent. La couverture complète de tous les cas de test imaginables n'est ni réalisable ni raisonnablement visée en pratique. Notre approche est différente : nous utilisons les tests automatisés **avec discernement**, en nous concentrant sur les domaines où les erreurs causeraient le plus de dégâts. Ainsi, nous nous assurons que les erreurs vraiment critiques ne peuvent tout simplement pas se produire – sans dépenser le budget pour une exhaustivité qui n'apporte aucune valeur ajoutée.
+
+        ### Notre boîte à outils de test
+
+        Pour les tests unitaires, nous utilisons selon le contexte du projet **xUnit** ou **NUnit** – deux frameworks établis qui ont fait leurs preuves dans l'écosystème .NET depuis des années. Nous testons les composants Blazor de manière ciblée avec **bUnit**, un framework spécialisé qui permet de vérifier la logique UI de manière isolée et reproductible, sans nécessiter de navigateur. Là où les composants individuels ne suffisent pas, des **tests d'intégration** entrent en jeu, vérifiant l'interaction de plusieurs parties du système – comme les accès à la base de données ou les endpoints API – dans des conditions réelles. Pour les tests de bout en bout, nous utilisons **Playwright**, qui automatise les interactions utilisateur complètes dans le navigateur et constitue ainsi la dernière ligne de défense avant la release.
+
+        ### Ship it and iterate
+
+        Cela nous permet de travailler selon le principe *«Ship it and iterate»* : livrer tôt, réagir aux retours réels et améliorer continuellement. Cela semble contradictoire avec l'assurance qualité – **mais ça ne l'est pas**. Car cette approche ne fonctionne de manière responsable que si des tests automatisés solides tournent en arrière-plan pour sécuriser les fondations.
+
+        ### Tout s'imbrique
+
+        Ainsi se boucle la boucle avec notre développement d'applications et notre automatisation : l'infrastructure de test que nous construisons dans le processus de développement et les pipelines CI/CD que nous automatisons ne sont pas des mesures isolées – elles **s'imbriquent** et forment ensemble la base qui vous permet d'avancer rapidement tout en restant en sécurité.

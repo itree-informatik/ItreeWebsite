@@ -1,0 +1,67 @@
+{{ define "main" }}
+{{ $d := index .Site.Data.impressum .Site.Language.Lang }}
+{{ $f := .Site.Params }}
+
+<section id="impressum" class="py-8 xl:py-16">
+    <div class="container mx-auto gap-16 px-4">
+        <h1 class="text-4xl font-bold text-center text-primary">{{ $d.title }}</h1>
+        <div class="container mx-auto px-4 py-16">
+            <address>
+                {{ $d.address | markdownify }}
+                <div class="mt-4 mb-4">
+                {{ with .Site.Params.contact }}
+                    {{ with .phone }}
+                    <div class="flex gap-3">
+                        <span class="text-primary">{{ partial "icons/phone.html" }}</span>
+                        <a class="text-center xl:text-start" href="tel:{{ $f.phone }}">{{ . }}</a>
+                    </div>
+                    {{ end }}
+
+                    {{ with .email }}
+                    <div class="flex gap-3">
+                        <span class="text-primary">{{ partial "icons/envelope.html" }}</span>
+                        <a class="text-center xl:text-start" href="mailto:{{ $f.email }}">{{ . }}</a>
+                    </div>
+                    {{ end }}
+                {{ end }}
+                </div>
+            </address>
+
+            <div class="mb-4 mt-4">
+                {{ $d.responsibility | markdownify }}
+            </div>
+
+            <div class="mb-4 mt-4">
+                {{ $d.register | markdownify }}
+            </div>
+
+            <p class="mb-4">
+                <strong>{{ i18n "disclaimer" }}</strong>
+                <br>
+                <span>{{ i18n "disclaimer_text" }}</span>
+            </p>
+            <p class="mb-4">
+                <strong>{{ i18n "disclaimer_links" }}</strong>
+                <br>
+                <span>{{ i18n "disclaimer_links_text" }}</span>
+                <br>
+                <span>{{ i18n "source" }}: <a href="https://www.swissanwalt.ch" target="_blank" rel="noopener">SwissAnwalt</a></span>
+            </p>
+
+            <div class="mb-4">
+                <strong>{{ i18n "sources_credits" }}</strong>
+                <br>
+                {{ $d.credits | markdownify }}
+            </div>
+
+            <div class="mb-4">
+                <strong>{{ i18n "cookies_privacy" }}</strong>
+                <br>
+                {{ i18n "cookies_privacy_text" }} <strong>{{ i18n "privacy_important" }}</strong>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{{ end }}

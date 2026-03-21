@@ -1,0 +1,47 @@
+de:
+  enable: true
+  title: "Unsere Services"
+  text: "Von der Entwicklung massgeschneiderter Softwarelösungen bis hin zur Implementierung modernster Technologien – wir sind Ihr zuverlässiger Partner für digitale Innovationen. Unsere Services umfassen Applikationsentwicklung, Automatisierung, Testing und Qualitätssicherung sowie Support und Wartung. Gemeinsam gestalten wir die digitale Zukunft Ihres Unternehmens."
+  cards:
+    - image: "images/services-web-development.png"
+      title: "Applikationsentwicklung"
+      text: "Wir entwickeln massgeschneiderte Softwarelösungen, die genau auf die Bedürfnisse Ihres Unternehmens zugeschnitten sind. Unser Team aus erfahrenen Entwicklern sorgt dafür, dass Ihre Anwendungen effizient, zuverlässig und zukunftssicher sind."
+      button:
+        label: "Mehr erfahren"
+        link: "/services/#applikationsentwicklung"
+    - image: "images/services-automation.png"
+      title: "Automatisierung"
+      text: "Wir helfen Ihnen, Ihre Geschäftsprozesse zu automatisieren und dadurch Zeit und Ressourcen zu sparen. Unsere Lösungen sind darauf ausgelegt, Ihre Effizienz zu steigern und Fehlerquellen zu minimieren."
+      button:
+        label: "Mehr erfahren"
+        link: "/services/#automatisierung"
+    - image: "images/services-testing.png"
+      title: "Testing & Qualitätssicherung"
+      text: "Wir sorgen dafür, dass Ihre Softwarelösungen höchsten Qualitätsstandards entsprechen. Durch umfassendes Testing und kontinuierliche Qualitätssicherung stellen wir sicher, dass Ihre Anwendungen zuverlässig und fehlerfrei funktionieren."
+      button:
+        label: "Mehr erfahren"
+        link: "/services/#testing-qualitaetssicherung"
+
+fr:
+  enable: true
+  title: "Nos services"
+  text: "Du développement de solutions logicielles sur mesure à l'implémentation des technologies les plus modernes – nous sommes votre partenaire fiable pour l'innovation numérique. Nos services comprennent le développement d'applications, l'automatisation, le testing et l'assurance qualité ainsi que le support et la maintenance. Ensemble, nous façonnons l'avenir numérique de votre entreprise."
+  cards:
+    - image: "images/services-web-development.png"
+      title: "Développement d'applications"
+      text: "Nous développons des solutions logicielles sur mesure, adaptées exactement aux besoins de votre entreprise. Notre équipe de développeurs expérimentés veille à ce que vos applications soient efficaces, fiables et pérennes."
+      button:
+        label: "En savoir plus"
+        link: "/fr/services/#applikationsentwicklung"
+    - image: "images/services-automation.png"
+      title: "Automatisation"
+      text: "Nous vous aidons à automatiser vos processus métier et ainsi économiser du temps et des ressources. Nos solutions sont conçues pour augmenter votre efficacité et minimiser les sources d'erreurs."
+      button:
+        label: "En savoir plus"
+        link: "/fr/services/#automatisierung"
+    - image: "images/services-testing.png"
+      title: "Testing & Assurance qualité"
+      text: "Nous veillons à ce que vos solutions logicielles répondent aux plus hauts standards de qualité. Grâce à des tests complets et une assurance qualité continue, nous garantissons que vos applications fonctionnent de manière fiable et sans erreur."
+      button:
+        label: "En savoir plus"
+        link: "/fr/services/#testing-qualitaetssicherung"

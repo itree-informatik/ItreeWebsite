@@ -1,0 +1,25 @@
+de:
+  enable: true
+  title: "Unsere Kunden"
+  items:
+    - "images/customer/bund.png"
+    - "images/customer/suva.png"
+    - "images/customer/post.png"
+    - "images/customer/nyffenegger.jpg"
+    - "images/customer/vs.png"
+    - "images/customer/be.png"
+    - "images/customer/so.png"
+    - "images/customer/lu.png"
+
+fr:
+  enable: true
+  title: "Nos clients"
+  items:
+    - "images/customer/bund.png"
+    - "images/customer/suva.png"
+    - "images/customer/post.png"
+    - "images/customer/nyffenegger.jpg"
+    - "images/customer/vs.png"
+    - "images/customer/be.png"
+    - "images/customer/so.png"
+    - "images/customer/lu.png"

@@ -1,0 +1,78 @@
+<nav class="">
+  <!-- Language Switcher Bar -->
+  <div class="hidden xl:block container mx-auto px-4 pt-2">
+    <div class="flex justify-end pb-2">
+      <div class="flex items-center gap-2 text-sm">
+        {{ range $i, $t := .Page.AllTranslations }}
+          {{ if $i }}<span class="text-gray-300">|</span>{{ end }}
+          {{ if eq $t.Language.Lang $.Site.Language.Lang }}
+            <span class="text-primary font-bold uppercase">{{ $t.Language.Lang }}</span>
+          {{ else }}
+            <a href="{{ $t.RelPermalink }}" class="text-gray-500 hover:text-primary uppercase">{{ $t.Language.Lang }}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  <div class="container mx-auto flex items-center justify-between px-4 pb-6">
+    <a class="flex items-center" href="{{ .Site.Home.RelPermalink }}">
+      {{ partial "utilities/image.html" (dict "src" "images/logo.png" "class" "size-6 xl:size-8") }}
+      <span class="ml-2 text-primary text-xl font-semibold lowercase xl:text-3xl">{{ .Site.Title }}</span>
+    </a>
+    <div class="flex items-center gap-4">
+      <button
+        class="cursor-pointer xl:hidden"
+        type="button"
+        data-toggle-target="#navbarContent"
+        data-toggle-class="-translate-y-full"
+        aria-label="Toggle Navigation"
+      >
+        {{ partial "heroicons/bars-4" }}
+      </button>
+    </div>
+    <div
+      class="fixed inset-0 z-50 flex -translate-y-full flex-col items-center justify-center gap-8 bg-white duration-500 xl:relative xl:translate-y-0 xl:flex-row"
+      id="navbarContent"
+    >
+      <div class="container absolute top-0 mx-auto flex items-center justify-between px-4 py-6 xl:hidden">
+        <a class="flex items-center xl:hidden" href="{{ .Site.Home.RelPermalink }}">
+          {{ partial "utilities/image.html" (dict "src" "images/logo.png" "class" "size-6 xl:size-8") }}
+          <span class="text-primary text-xl font-semibold lowercase xl:text-3xl">{{ .Site.Title }}</span>
+        </a>
+        <button
+          class="cursor-pointer xl:hidden"
+          type="button"
+          data-toggle-target="#navbarContent"
+          data-toggle-class="-translate-y-full"
+          aria-label="Toggle Navigation"
+        >
+          {{ partial "heroicons/x-mark" }}
+        </button>
+      </div>
+      <ul class="flex flex-col gap-8 xl:flex-row">
+        {{ range site.Menus.main }}
+          <li class="text-center">
+            <a class="text-primary" href="{{ .URL }}">{{ .Name }}</a>
+          </li>
+        {{ end }}
+      </ul>
+      <ul class="flex flex-col gap-8 xl:flex-row">
+        {{ range .Site.Menus.buttons }}
+          <li class="text-center">
+            {{ partial "components/button/primary" (dict "label" .Name "href" .URL ) }}
+          </li>
+        {{ end }}
+      </ul>
+      <!-- Mobile Language Switcher -->
+      <div class="flex items-center gap-3 xl:hidden">
+        {{ range $i, $t := .Page.AllTranslations }}
+          {{ if eq $t.Language.Lang $.Site.Language.Lang }}
+            <span class="text-primary font-bold uppercase text-lg">{{ $t.Language.Lang }}</span>
+          {{ else }}
+            <a href="{{ $t.RelPermalink }}" class="text-gray-500 hover:text-primary uppercase text-lg">{{ $t.Language.Lang }}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</nav>

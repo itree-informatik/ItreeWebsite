@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(hugo build:*)",
+      "Bash(where go:*)",
+      "Bash(where hugo:*)",
+      "Bash(hugo:*)",
+      "Bash(npm --version)",
+      "Bash(gh repo:*)",
+      "Bash(where gh:*)",
+      "Bash(find /c/repos/itreewebsite -name *i18n* -o -name *lang* -o -name *translation*)",
+      "Bash(grep -r language /c/repos/itreewebsite/layouts --include=*.html)",
+      "WebFetch(domain:gohugo.io)",
+      "Bash(go env:*)",
+      "Bash(find C:/Users/dariu/go/pkg/mod -type d -iname *hugo*business*)",
+      "Bash(find C:/Users/dariu/AppData/Local/hugo_cache/modules/filecache/modules/pkg/mod/github.com/writeonlycode/hugo-up-business@v0.0.0-20250709124836-33d421f28c8c -type f -name *.html)",
+      "Bash(cd:*)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(npm install:*)",
+      "Bash(find content:*)",
+      "Bash(echo $GOPATH)",
+      "Read(//c/Users/dariu/.cache/**)",
+      "Bash(find . -type d -name *hugo-up*)",
+      "Bash(printf '%s\\\\n' \"$GOPATH\")",
+      "Bash(test -d \"$GOPATH\")",
+      "Read(//c/repos/ItreeWebsite/$GOPATH/pkg/mod/**)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(xargs ls:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git mv:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git checkout:*)"
+    ]
+  }
+}

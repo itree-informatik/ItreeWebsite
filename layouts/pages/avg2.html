@@ -1,0 +1,80 @@
+{{ define "main" }}
+{{ $d := index .Site.Data.avg2 .Site.Language.Lang }}
+
+<div class="relative">
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar-nav fixed top-24 left-0 w-56 pl-4 pr-2">
+    <nav class="space-y-2">
+      <a href="#intro"
+        class="chapter-link block px-4 py-2 rounded text-sm text-gray-700 hover:bg-primary hover:text-white transition"
+        data-chapter="intro">
+        {{ i18n "general" }}
+      </a>
+      {{ range $d.chapters }}
+      <a href="#{{ .name | urlize }}"
+        class="chapter-link block px-4 py-2 rounded text-sm text-gray-700 hover:bg-primary hover:text-white transition"
+        data-chapter="{{ .name | urlize }}">
+        {{ .name }}
+      </a>
+      {{ end }}
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-4 py-16" id="avg2">
+    <section id="intro">
+      <h1 class="text-4xl font-bold text-center text-primary">{{ $d.title }}</h1>
+      <h1 class="title text-4xl font-bold text-center text-primary mb-8">{{ $d.subtitle | markdownify }}</h1>
+
+      {{ range $d.intro }}
+      <p class="text-lg text-gray-700 mb-4">{{ . }}</p>
+      {{ end }}
+    </section>
+
+    {{ with $d.chapters }}
+    {{ range $index, $chapter := . }}
+    <section id="{{ $chapter.name | urlize }}" class="chapter-section mb-8">
+      {{ if $chapter.image }}
+      <!-- Mit Bild: 3 Spalten -->
+      <div class="grid xl:grid-cols-3 xl:gap-8">
+        <div
+          class="flex flex-col items-center justify-center {{ if eq (mod $index 2) 1 }}xl:col-span-1{{ else }}xl:col-span-1 xl:order-3{{ end }}">
+          <div class="flex flex-col items-center justify-center">
+            {{ partial "utilities/image.html" (dict "src" $chapter.image "class" "w-full h-auto") }}
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col justify-center {{ if eq (mod $index 2) 1 }}xl:col-span-2 xl:order-1{{ else }}xl:col-span-2 xl:order-2{{ end }}">
+          <p class="text-secondary mb-2 text-left font-bold">{{ $chapter.name }}</p>
+          <h1 class="text-primary mb-4 text-left text-4xl font-bold">{{ $chapter.title }}</h1>
+          <div class="mb-6 text-left prose-full">
+            {{ $chapter.text | markdownify }}
+          </div>
+        </div>
+      </div>
+      {{ else }}
+      <!-- Ohne Bild: ganze Breite -->
+      <div class="grid xl:grid-cols-1">
+        <div class="flex flex-col justify-center">
+          <p class="text-secondary mb-2 text-left font-bold">{{ $chapter.name }}</p>
+          <h1 class="text-primary mb-4 text-left text-4xl font-bold">{{ $chapter.title }}</h1>
+          <div class="mb-6 text-left prose-full">
+            {{ if eq $chapter.name "Releases" }}
+            <div id="releases-container"></div>
+            {{ else }}
+            {{ $chapter.text | markdownify }}
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </section>
+    {{ end }}
+    {{ end }}
+  </div>
+</div>
+
+<script src="/js/release.js"></script>
+<script src="/js/sidebar-scroll.js"></script>
+{{ end }}

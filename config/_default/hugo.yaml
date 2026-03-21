@@ -1,0 +1,29 @@
+baseURL: "/"
+title: "itree informatik"
+summaryLength: 20
+
+defaultContentLanguage: de
+
+languages:
+  de:
+    languageCode: de-CH
+    languageName: Deutsch
+    weight: 1
+    params:
+      description: "Individuelle Software. Intelligente Automatisierung. Für moderne Unternehmen."
+      copyright: "© 2026 itree informatik GmbH Alle Rechte vorbehalten"
+      location:
+        - "Bernstrasse 41, 3303 Jegenstorf, Schweiz"
+  fr:
+    languageCode: fr-CH
+    languageName: Français
+    weight: 2
+    params:
+      description: "Logiciels sur mesure. Automatisation intelligente. Pour les entreprises modernes."
+      copyright: "© 2026 itree informatik GmbH Tous droits réservés"
+      location:
+        - "Bernstrasse 41, 3303 Jegenstorf, Suisse"
+
+# services:
+#   googleAnalytics:
+#     id: G-MEASUREMENT_ID

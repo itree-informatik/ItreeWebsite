@@ -1,0 +1,21 @@
+de:
+  enable: true
+  title: "Gemeinsam **digitale Potenziale** nutzen"
+  text: "Gemeinsam entwickeln wir digitale Lösungen mit unseren Kunden, die Prozesse vereinfachen, Effizienz steigern und nachhaltigen Mehrwert schaffen. Sicherheit, Zuverlässigkeit und Innovation stehen dabei im Mittelpunkt unserer Arbeit."
+  buttons:
+    - label: "Unsere Services"
+      url: "/service/"
+    - label: "Kontaktieren Sie uns"
+      url: "/contact/"
+  image: "images/hero-image.png"
+
+fr:
+  enable: true
+  title: "Exploiter ensemble les **potentiels numériques**"
+  text: "Ensemble, nous développons des solutions numériques avec nos clients qui simplifient les processus, augmentent l'efficacité et créent une valeur ajoutée durable. La sécurité, la fiabilité et l'innovation sont au cœur de notre travail."
+  buttons:
+    - label: "Nos services"
+      url: "/fr/service/"
+    - label: "Contactez-nous"
+      url: "/fr/contact/"
+  image: "images/hero-image.png"

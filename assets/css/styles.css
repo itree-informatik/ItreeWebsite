@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+@import './shared/_pagination.css';
+
+@import './home/_hero.css';
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #0000009c;
+  }
+}
+
+@layer components {
+  .prose-full {
+    @apply prose w-full !max-w-full mx-0;
+  }
+}
+
+@theme {
+  --color-primary: {{ (default "#5d57a3	" site.Params.colors.primary) }};
+  --color-secondary: {{ (default "#d33a77	" site.Params.colors.secondary) }};
+  --color-tertiary: {{ (default "#dcf0ff" site.Params.colors.tertiary) }};
+}
+
+body {
+  @apply antialiased;
+}
+
+#avg2 .title strong,
+#services-content .title strong {
+    font-weight: inherit;
+    color: var(--color-secondary);
+}
+
+.pt-8 {
+    padding-top: calc(var(--spacing) * 8)
+}
+
+/* Sidebar nur anzeigen wenn genug Platz neben dem Container vorhanden ist */
+.sidebar-nav {
+    display: none;
+}
+
+@media (min-width: 1970px) {
+    .sidebar-nav {
+        display: block;
+    }
+}

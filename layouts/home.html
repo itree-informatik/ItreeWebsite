@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{ with index .Site.Data.home.hero .Site.Language.Lang }}{{ if .enable }}{{ partial "blocks/home/hero.html" . }}{{ end }}{{ end }}
+{{ with index .Site.Data.home.brands .Site.Language.Lang }}{{ if .enable }}{{ partial "blocks/home/brands.html" . }}{{ end }}{{ end }}
+{{ with index .Site.Data.home.portfolio .Site.Language.Lang }}{{ if .enable }}{{ partial "blocks/home/portfolio.html" . }}{{ end }}{{ end }}
+{{ with index .Site.Data.home.services .Site.Language.Lang }}{{ if .enable }}{{ partial "blocks/home/services.html" . }}{{ end }}{{ end }}
+{{ with index .Site.Data.home.testimonials .Site.Language.Lang }}{{ if .enable }}{{ partial "blocks/home/testimonials.html" . }}{{ end }}{{ end }}
+{{ with index .Site.Data.home.cta .Site.Language.Lang }}{{ if .enable }}{{ partial "blocks/home/cta.html" . }}{{ end }}{{ end }}
+{{ end }}

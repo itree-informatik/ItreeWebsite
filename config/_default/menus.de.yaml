@@ -1,0 +1,42 @@
+main:
+  - name: "Home"
+    pageRef: "/"
+    weight: 1
+
+  - name: "AVG2"
+    pageRef: "/avg2"
+    weight: 2
+
+  - name: "Services"
+    pageRef: "/services"
+    weight: 3
+
+  - name: "Blog"
+    pageRef: "/blog"
+    weight: 4
+
+buttons:
+  - name: "Kontakt"
+    pageRef: "/contact"
+    weight: 5
+
+footer:
+  - name: "Home"
+    pageRef: "/"
+    weight: 1
+
+  - name: "AVG2"
+    pageRef: "/avg2"
+    weight: 2
+
+  - name: "Services"
+    pageRef: "/services"
+    weight: 3
+
+  - name: "Blog"
+    pageRef: "/blog"
+    weight: 4
+
+  - name: "Impressum"
+    pageRef: "/impressum"
+    weight: 5

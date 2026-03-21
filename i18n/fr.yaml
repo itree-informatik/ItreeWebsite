@@ -1,0 +1,30 @@
+about_us:
+  other: "À propos"
+address:
+  other: "Adresse"
+contact:
+  other: "Contact"
+privacy_footer:
+  other: "Pas de cookies, pas de tracking, pas de surprises. La protection des données nous tient à cœur."
+general:
+  other: "Général"
+disclaimer:
+  other: "Clause de non-responsabilité"
+disclaimer_text:
+  other: "L'auteur décline toute responsabilité quant à l'exactitude, la précision, l'actualité, la fiabilité et l'exhaustivité des informations. Toute réclamation en responsabilité contre l'auteur pour des dommages matériels ou immatériels résultant de l'accès ou de l'utilisation ou de la non-utilisation des informations publiées, d'un usage abusif de la connexion ou de dysfonctionnements techniques est exclue. Toutes les offres sont sans engagement. L'auteur se réserve expressément le droit de modifier, compléter, supprimer des parties des pages ou l'ensemble de l'offre sans annonce préalable ou de cesser temporairement ou définitivement la publication."
+disclaimer_links:
+  other: "Clause de non-responsabilité pour les liens"
+disclaimer_links_text:
+  other: "Les références et liens vers des sites web de tiers sont en dehors de notre domaine de responsabilité. Toute responsabilité pour de tels sites web est déclinée. L'accès et l'utilisation de ces sites web se font aux risques et périls de l'utilisateur."
+sources_credits:
+  other: "Sources & Crédits"
+cookies_privacy:
+  other: "Cookies / Protection des données"
+cookies_privacy_text:
+  other: "Ce site ne stocke aucun cookie et n'utilise ni tracking ni analytics. OpenStreetMap est intégré sans tracking supplémentaire."
+privacy_important:
+  other: "La protection des données nous tient à cœur."
+source:
+  other: "Source"
+back:
+  other: "Retour"

@@ -1,0 +1,33 @@
+de:
+  title: "Impressum"
+  address: |-
+    **Kontakt-Adresse**
+    itree informatik GmbH
+    Bernstrasse 41
+    3303 Jegenstorf
+    Schweiz
+  responsibility: |-
+    **Vertretungsberechtigte Personen**
+    Philipp Bielmann & Wolfgang Ertl
+  register: |-
+    **Eingetragener Firmenname:** itree informatik GmbH
+    **Handelsregister Nr:** CHE-101.169.493
+  credits: |-
+    Diese Website wurde mit Hugo erstellt und verwendet das Template "[hugo-up-business](https://github.com/writeonlycode/hugo-up-business)" von writeonlycode.
+
+fr:
+  title: "Mentions légales"
+  address: |-
+    **Adresse de contact**
+    itree informatik GmbH
+    Bernstrasse 41
+    3303 Jegenstorf
+    Suisse
+  responsibility: |-
+    **Personnes autorisées à représenter la société**
+    Philipp Bielmann & Wolfgang Ertl
+  register: |-
+    **Raison sociale enregistrée :** itree informatik GmbH
+    **N° du registre du commerce :** CHE-101.169.493
+  credits: |-
+    Ce site a été créé avec Hugo et utilise le template « [hugo-up-business](https://github.com/writeonlycode/hugo-up-business) » de writeonlycode.

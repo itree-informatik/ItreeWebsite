@@ -1,0 +1,15 @@
+de:
+  enable: false
+  title: "Start your business now!"
+  image: "images/services-web-development.png"
+  button:
+    label: "Let's talk"
+    link: "#"
+
+fr:
+  enable: false
+  title: "Lancez votre activité maintenant !"
+  image: "images/services-web-development.png"
+  button:
+    label: "Parlons-en"
+    link: "#"

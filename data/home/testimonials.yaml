@@ -1,0 +1,23 @@
+de:
+  enable: true
+  title: "Kundenfeedback"
+  featured1:
+    image: "images/testimonials-awards.png"
+    text: "Die Mitarbeiter von **itree** haben einen tollen Job gemacht. Sie haben genau zugehört, was wir brauchen. Sie haben verstanden, worum es bei der Ausbildungsverpflichtung geht. Und Sie haben dann eine Fachapplikation konzipiert und programmiert, die alle Bedürfnisse optimal abdeckt. Bei den Spitälern, Heimen und Spitex-Betrieben ist die Fachapplikation Ausbildungsverpflichtung akzeptiert. Sie nutzen sie gerne, weil sie einfach zu bedienen ist. Zu diesem Erfolg hat **itree** wesentlich beigetragen. Wir sind mit der Zusammenarbeit sehr zufrieden."
+    client: "Danny Heilbronn, GA-GSI Kanton Bern"
+  featured2:
+    image: "images/testimonials-awards2.png"
+    text: "Im Rahmen der Verpflichtung der Gesundheitsinstitutionen zur Teilnahme an der praktischen Ausbildung für nichtuniversitäre Gesundheitsberufe konnte der Kanton Wallis auf die jahrelange Erfahrung der Mitarbeiter von **itree** zurückgreifen und eine für den Kanton Wallis angepasste und massgeschneiderte Informatiklösung erstellen. Dank einer äusserst konstruktiven, zielorientierten und respektvollen Zusammenarbeit mit dem gesamten Team von **itree**, welches immer wieder auf mögliche Probleme hingewiesen und Lösungsansätze vorgeschlagen hat, war die Realisierung innerhalb kürzester Zeit möglich. Dies auch aufgrund der Flexibilität und Erreichbarkeit der Mitarbeiter von **itree**."
+    client: "Daniel Lötscher, DGSK Kanton Wallis"
+
+fr:
+  enable: true
+  title: "Témoignages clients"
+  featured1:
+    image: "images/testimonials-awards.png"
+    text: "Les collaborateurs d'**itree** ont fait un travail remarquable. Ils ont écouté attentivement ce dont nous avions besoin. Ils ont compris l'enjeu de l'obligation de formation. Et ils ont ensuite conçu et programmé une application métier qui couvre tous les besoins de manière optimale. L'application est acceptée par les hôpitaux, les EMS et les services de soins à domicile. Ils l'utilisent volontiers car elle est facile à utiliser. **itree** a contribué de manière significative à ce succès. Nous sommes très satisfaits de cette collaboration."
+    client: "Danny Heilbronn, GA-GSI Canton de Berne"
+  featured2:
+    image: "images/testimonials-awards2.png"
+    text: "Dans le cadre de l'obligation des institutions de santé à participer à la formation pratique des professions de santé non universitaires, le canton du Valais a pu s'appuyer sur l'expérience de longue date des collaborateurs d'**itree** pour créer une solution informatique adaptée et sur mesure pour le canton du Valais. Grâce à une collaboration extrêmement constructive, orientée vers les objectifs et respectueuse avec toute l'équipe d'**itree**, qui a constamment signalé les problèmes potentiels et proposé des solutions, la réalisation a été possible dans les plus brefs délais. Cela est également dû à la flexibilité et à la disponibilité des collaborateurs d'**itree**."
+    client: "Daniel Lötscher, DGSK Canton du Valais"

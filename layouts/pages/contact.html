@@ -1,0 +1,64 @@
+{{ define "main" }}
+{{ $d := index .Site.Data.contact .Site.Language.Lang }}
+
+<section id="impressum" class="py-8 xl:py-16">
+  <div class="container mx-auto px-4 py-16" id="contact">
+
+    <h1 class="text-4xl font-bold text-center text-primary mb-8">{{ $d.title }}</h1>
+    
+    <div class="col-span-12 xl:col-span-6 mb-8">
+      <iframe width="100%" height="350"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=7.501738965511323%2C47.04299884274493%2C7.507934868335725%2C47.045283530668065&layer=mapnik&marker=47.044362,7.505124&zoom=18"
+        style="border: 0">
+      </iframe>
+    </div>
+
+    
+
+    <div class="grid grid-cols-12 gap-8">
+      <!-- Kontaktdaten -->
+      <div class="col-span-12 xl:col-span-6 mt-6">
+        <ul class="flex flex-col gap-2 text-lg">
+          <li class="flex flex-col items-center gap-4 xl:flex-row">
+            <span class="text-center xl:text-start text-primary"><strong>itree informatik GmbH</strong></span>
+          </li>
+          {{ range .Site.Params.location }}
+          <li class="flex flex-col items-center gap-4 xl:flex-row">
+            <span class="text-primary">{{ partial "icons/geo-alt.html" }}</span>
+            <span class="text-center xl:text-start">{{ . }}</span>
+          </li>
+          {{ end }}
+          {{ with .Site.Params.contact }}
+          {{ with .email }}
+          <li class="flex flex-col items-center gap-4 xl:flex-row">
+            <span class="text-primary text-2xl">{{ partial "icons/envelope.html" }}</span>
+            <a class="text-center xl:text-start hover:underline" href="mailto:{{ . }}">{{ . }}</a>
+          </li>
+          {{ end }}
+          {{ with .phone }}
+          <li class="flex flex-col items-center gap-4 xl:flex-row">
+            <span class="text-primary text-2xl">{{ partial "icons/phone.html" }}</span>
+            <a class="text-center xl:text-start hover:underline" href="tel:{{ . }}">{{ . }}</a>
+          </li>
+          {{ end }}
+          {{ with .github }}
+          <li class="flex flex-col items-center gap-4 xl:flex-row">
+            <span class="text-primary text-2xl">{{ partial "icons/github.html" }}</span>
+            <a class="text-center xl:text-start hover:underline" href="https://{{ . }}" target="_blank">{{ . }}</a>
+          </li>
+          {{ end }}
+          {{ end }}
+        </ul>
+      </div>
+
+      <!-- Bild -->
+      <div class="col-span-12 xl:col-span-6 mt-6">
+        <img src="/images/Itree2.png" alt="itree informatik GmbH" class="h-auto mb-4">
+        <!-- Alternative mit partial 
+          {{ partial "utilities/image.html" (dict "src" "images/Itree2.png" "class" "w-full h-auto") }}
+          {{ partial "utilities/image.html" (dict "src" "images/3mouses.jpg" "class" "w-full h-auto") }}
+           -->
+      </div>
+    </div>
+</section>
+{{ end }}

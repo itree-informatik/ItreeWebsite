@@ -1,0 +1,16 @@
+title: "itree informatik GmbH"
+slogan: "Digital Solutions"
+images:
+  - "images/hero-image.png"
+
+logo: "arrow-up.png"
+
+favicons:
+  themeColor: "#FFFFFF"
+  backgroundColor: "#FFFFFF"
+  faviconColor: "#000000"
+
+contact:
+  email: "info@itree.ch"
+  phone: "+41 31 762 05 06"
+  github: "github.com/itree-informatik"

@@ -1,0 +1,207 @@
+de:
+  title: "AVG2"
+  subtitle: "Ihr **digitaler Partner** für die Gesundheitsausbildung"
+  pdf:
+    label: "PDF herunterladen"
+    file: "/docs/itree - Advertising AVG2.pdf"
+  intro:
+   - AVG steht für "Ausbildungsverpflichtung nicht-universitärer Gesundheitsberufe". Die Revision 2, eine umfassende Überarbeitung aus dem Jahr 2021, ermöglicht es Ihnen, Gesundheitsbetriebe Ihres Kantons zu erfassen und deren nicht-universitäre Ausbildungen effizient zu verwalten. Dadurch lässt sich das Ausbildungspotential präzise ermitteln.
+   - Daten können sowohl von berechtigten Mitarbeitern medizinischer Einrichtungen – wie Krankenhäusern und Pflegeeinrichtungen – als auch von kantonalen Verantwortlichen eingegeben werden. Diese Daten dienen unter anderem der Berechnung von Subventionen oder Strafzahlungen, der Steuerung von Prozessen und der Überwachung von Fristen.
+   - Mit AVG2 überprüfen und validieren Sie ihre Grundversorgungsplanung anhand von tatsächlichen Ausbildungsleistungen.
+   - Die Erfassung von Abschlüssen und Ausbildungen erfolgt einmalig. Änderungen können pro Jahr flexibel verwaltet werden, sodass Ihre Daten stets aktuell sind.
+   - AVG2 ist eine webbasierte Lösung und erfordert keine Installation. Die Anwendung ist mit jedem modernen Browser kompatibel.
+   - Seit über zehn Jahren entwickeln wir die AVG-Applikation in enger Zusammenarbeit mit dem Kanton Bern. Kürzlich haben sich auch die Kantone Wallis und Solothurn für AVG2 entschieden.
+   - AVG2 bietet Ihnen vollständige Flexibilität und wird bei Bedarf individuell an Ihre Anforderungen angepasst.
+  chapters:
+    - name: "Cockpit"
+      title: "Ihr Echtzeit-Dashboard in AVG2"
+      image: "/images/avg2/dashboard.png"
+      text: "Mit dem Echtzeit-Dashboard von AVG2 behalten Sie stets den Überblick. Hier können Sie aktuelle Statistiken einsehen, Prozesse initiieren und den Stand der Datenerfassung durch die Leistungserbringer überwachen. Zusätzlich erhalten Sie Hinweise auf notwendige Datenkorrekturen, um die Datenqualität kontinuierlich zu verbessern."
+    - name: "Dokumentengenerierung"
+      title: "Effiziente Dokumentengenerierung mit AVG2"
+      image: "/images/avg2/docgen.png"
+      text: |-
+        AVG2 ermöglicht das effiziente Erstellen von Entwurfs- und definitiven Verfügungen sowie Vereinbarungen, basierend auf den erfassten Daten der Leistungserbringer. Die Dokumentenerstellung kann sowohl für mehrere Betriebe gleichzeitig als auch individuell pro Betrieb durchgeführt werden.
+
+        Standardmässig unterstützt AVG2 die folgenden individuell konfigurierbaren Prozesse:
+        - Ausbildungsverfügung / Leistungsvereinbarung
+        - Schlussabrechnung
+        - Ausgleichszahlung (bei Nichterreichen der verfügten Leistungen)
+        - Busse bei ausbleibender Datenerfassung durch Leistungserbringer
+
+        Die Dokumente werden auf Basis von Microsoft Word-Vorlagen erstellt, die jährlich in der Applikation verwaltet werden können. Bei Bedarf erweitern wir die Funktionalitäten der Prozesse jederzeit nach Ihren Wünschen.
+    - name: "Datenintegrität"
+      title: "Gesicherte Datenintegrität mit AVG2"
+      image: "/images/avg2/dataintegrity.png"
+      text: |-
+        AVG2 sichert die Integrität der von den Leistungserbringern erfassten Daten durch eine lückenlose Historisierung. Änderungen und Korrekturen sind dadurch für alle beteiligten Parteien, sowohl für Leistungserbringer als auch für kantonale Mitarbeiter, jederzeit nachvollziehbar.
+
+        Unfertige Datensätze können gespeichert und später vervollständigt oder freigegeben werden, was den Status jedes Datensatzes transparent macht. Auch trägt eine umfangreiche Validierung dazu bei, dass fehlerhafte Eingaben minimiert werden.
+
+        Zusätzlich erkennt AVG2 automatisch signifikante Abweichungen in den Jahresdaten der Leistungserbringer und erlaubt eine eigenständige Festlegung von Toleranzgrenzen pro Jahr. Für jede Ausbildung lässt sich zudem konfigurieren, ob ein Nachweis der Leistungserbringung erforderlich ist, welcher dann vom Leistungserbringer hochgeladen werden kann.
+    - name: "Flexibilität"
+      title: "Flexibilität nach Mass"
+      image: "/images/avg2/customization.png"
+      text: |-
+        AVG2 bietet Ihnen eine Vielzahl an Einstellungsmöglichkeiten, um die Anwendung perfekt an Ihre individuellen Bedürfnisse anzupassen. Diese Anpassungen können Sie jährlich eigenständig vornehmen, um sicherzustellen, dass die kantonalen Vorgaben für jedes Jahr präzise umgesetzt werden.
+
+        Sie haben die Kontrolle: Verwalten Sie die Ausbildungen eigenhändig und legen Sie die notwendigen Berechnungsgrundlagen fest. Mit AVG2 bleiben Sie flexibel und effizient.
+    - name: "Auswertungen"
+      title: "Umfassender Einblick mit AVG2"
+      image: "/images/avg2/auswertungen.png"
+      text: |-
+        Mit AVG2 erhalten Sie Zugang zu detaillierten Auswertungen. Sie können eine Liste aller Kontaktpersonen der Betriebe einsehen, überprüfen, wann sich ein Nutzer zuletzt eingeloggt hat, und feststellen, welche Dokumente, z.B. trotz abgelaufener Frist, noch nicht heruntergeladen wurden. Diese Informationen sind stets leicht zugänglich und bieten wertvolle Einblicke in den Status Ihrer Prozesse.
+    - name: "Dokumentenmanagement"
+      title: "Dokumentenmanagement in AVG2"
+      image: "/images/avg2/dokumentenablage.png"
+      text: |-
+        Teilen Sie Dokumente in AVG2 gezielt: Entweder intern mit den kantonalen Verantwortlichen, mit allen Leistungserbringern oder exklusiv pro Leistungserbringer. AVG2 unterstützt diese differenzierte Dokumentenverteilung durch verschiedene Dokumentenablagen, um den unterschiedlichen Anforderungen gerecht zu werden.
+
+        Dokumente, die für alle Leistungserbringer relevant sind, können zentral in der allgemeinen Dokumentenablage hinterlegt werden. Spezifische Dokumente, die nur für einzelne Leistungserbringer bestimmt sind, können direkt in deren individuelle Ablage hochgeladen werden. So stellen Sie sicher, dass alle Beteiligten stets Zugriff auf die für sie relevanten Informationen haben.
+    - name: "Mehrsprachigkeit"
+      title: "Mehrsprachigkeit in AVG2"
+      image: "/images/avg2/languages.png"
+      text: |-
+        Die Benutzeroberfläche von AVG2 unterstützt Mehrsprachigkeit mit Texten, die flexibel konfiguriert und einfach in Deutsch, Französisch, Italienisch oder Englisch geändert und angezeigt werden können. Nutzen Sie den Übersetzungsmodus zur direkten Anpassung in der Anwendung oder den Excel-Export, um Übersetzungen bequem offline durchzuführen.
+    - name: "Benutzerhilfe"
+      title: "Benutzerhilfe in AVG2"
+      image: "/images/avg2/userhelp.png"
+      text: |-
+        AVG2 bietet umfangreiche Unterstützung durch anpassbare Hilfetexte in jeder Ansicht, die nicht nur in mehreren Sprachen verfügbar sind, sondern auch spezifisch auf die Bedürfnisse der Nutzer abgestimmt werden können. Sie können in diesen Hilfetexten wichtige Informationen, Fachbegriffe sowie rechtliche Hinweise hinterlegen, um den Leistungserbringern eine präzise Anleitung und rechtliche Sicherheit beim Umgang mit der Software zu bieten. Wenn kein Hilfetext hinterlegt ist, bleibt die Hilfeansicht verborgen, um die Benutzeroberfläche klar und übersichtlich zu halten. Zusätzlich unterstützt AVG2 das Einbinden von Screenshots, um visuelle Anleitungen zu bieten und das Verständnis der Nutzer weiter zu verbessern.
+    - name: "Aufgabenmanagement"
+      title: "Aufgabenmanagement in AVG2"
+      image: "/images/avg2/taskboard.png"
+      text: |-
+        In AVG2 können Sie Aufgaben als Erinnerungshilfen erstellen und mit Fristen versehen. Dies hilft Ihnen, den Überblick über wichtige Termine und Verpflichtungen zu behalten und sicherzustellen, dass alles termingerecht erledigt wird.
+    - name: "Berechtigungen"
+      title: "Flexibel und sicher mit AVG2"
+      image: "/images/avg2/security.png"
+      text: |-
+        AVG2 ermöglicht die Definition verschiedener, anpassbarer Rollen für kantonale Mitarbeiter und Betriebe. Dies gewährleistet eine hohe Flexibilität und maximale Sicherheit im Umgang mit sensiblen Daten und Prozessen.
+    - name: "Releases"
+      title: "Kommende Releases in AVG2"
+      text: ""
+    - name: "Technologie"
+      title: "Technologie in AVG2"
+      text: |-
+       | Komponente | Technologie |
+       |---|---|
+       | Plattform | .NET 10 |
+       | Frontend | Blazor WebAssembly (WASM) |
+       | Backend | ASP.NET Core Web API |
+       | Datenbank | Microsoft SQL Server 2022 |
+       | Containerisierung | Docker Images |
+       | Container Registry | Azure Container Registry |
+       | **Aspekt** | **Technologie** |
+       | SBOM Generierung | CycloneDX |
+       | Vulnerability Management | DependencyTrack |
+       | Authentisierung | OpenID Connect |
+       | Autorisierung | Eigene Implementation über Datenbank |
+       | **Element** | **Technologie** |
+       | CSS Framework | Bootstrap |
+       | Komponentenlibrary | Telerik UI for Blazor |
+       > **Hinweis:** OpenID Connect wird ausschliesslich als Protokoll für die Anbindung an einen bestehenden Identity Provider des Kunden verwendet. Ein Authorization Server ist nicht Bestandteil des Lieferumfangs, kann jedoch bei Bedarf durch uns konzipiert, integriert oder konfiguriert werden. Die Anbindung an gängige Anbieter wie AGOV oder SwissID ist grundsätzlich möglich und wurde bereits erfolgreich realisiert.
+
+fr:
+  title: "AVG2"
+  subtitle: "Votre **partenaire numérique** pour la formation en santé"
+  pdf:
+    label: "Télécharger le PDF"
+    file: "/docs/itree - Advertising AVG2.pdf"
+  intro:
+   - AVG signifie « obligation de formation des professions de santé non universitaires » (Ausbildungsverpflichtung nicht-universitärer Gesundheitsberufe). La révision 2, une refonte complète datant de 2021, vous permet de saisir les établissements de santé de votre canton et de gérer efficacement leurs formations non universitaires. Le potentiel de formation peut ainsi être déterminé avec précision.
+   - Les données peuvent être saisies aussi bien par les collaborateurs autorisés des établissements médicaux – tels que les hôpitaux et les établissements de soins – que par les responsables cantonaux. Ces données servent notamment au calcul des subventions ou des pénalités, au pilotage des processus et à la surveillance des délais.
+   - Avec AVG2, vous vérifiez et validez votre planification des soins de base sur la base des prestations de formation effectives.
+   - La saisie des diplômes et des formations se fait une seule fois. Les modifications peuvent être gérées de manière flexible par année, afin que vos données soient toujours à jour.
+   - AVG2 est une solution web et ne nécessite aucune installation. L'application est compatible avec tout navigateur moderne.
+   - Depuis plus de dix ans, nous développons l'application AVG en étroite collaboration avec le canton de Berne. Récemment, les cantons du Valais et de Soleure ont également opté pour AVG2.
+   - AVG2 vous offre une flexibilité totale et est adapté individuellement à vos besoins si nécessaire.
+  chapters:
+    - name: "Cockpit"
+      title: "Votre tableau de bord en temps réel dans AVG2"
+      image: "/images/avg2/dashboard.png"
+      text: "Avec le tableau de bord en temps réel d'AVG2, vous gardez toujours une vue d'ensemble. Vous pouvez consulter les statistiques actuelles, initier des processus et surveiller l'état de la saisie des données par les prestataires. De plus, vous recevez des indications sur les corrections de données nécessaires pour améliorer continuellement la qualité des données."
+    - name: "Génération de documents"
+      title: "Génération efficace de documents avec AVG2"
+      image: "/images/avg2/docgen.png"
+      text: |-
+        AVG2 permet la création efficace de projets et de décisions définitives ainsi que de conventions, basées sur les données saisies par les prestataires. La création de documents peut être effectuée simultanément pour plusieurs établissements ou individuellement par établissement.
+
+        Par défaut, AVG2 prend en charge les processus configurables individuellement suivants :
+        - Décision de formation / Convention de prestations
+        - Décompte final
+        - Paiement compensatoire (en cas de non-atteinte des prestations prescrites)
+        - Amende en cas de non-saisie des données par les prestataires
+
+        Les documents sont créés sur la base de modèles Microsoft Word, qui peuvent être gérés annuellement dans l'application. Si nécessaire, nous étendons les fonctionnalités des processus à tout moment selon vos souhaits.
+    - name: "Intégrité des données"
+      title: "Intégrité des données garantie avec AVG2"
+      image: "/images/avg2/dataintegrity.png"
+      text: |-
+        AVG2 assure l'intégrité des données saisies par les prestataires grâce à un historique complet. Les modifications et corrections sont ainsi traçables à tout moment pour toutes les parties concernées, tant pour les prestataires que pour les collaborateurs cantonaux.
+
+        Les jeux de données incomplets peuvent être sauvegardés et complétés ou validés ultérieurement, ce qui rend le statut de chaque jeu de données transparent. De plus, une validation étendue contribue à minimiser les saisies erronées.
+
+        En outre, AVG2 détecte automatiquement les écarts significatifs dans les données annuelles des prestataires et permet de définir des seuils de tolérance par année. Pour chaque formation, il est possible de configurer si une preuve de prestation est requise, laquelle peut alors être téléchargée par le prestataire.
+    - name: "Flexibilité"
+      title: "Une flexibilité sur mesure"
+      image: "/images/avg2/customization.png"
+      text: |-
+        AVG2 vous offre une multitude d'options de configuration pour adapter parfaitement l'application à vos besoins individuels. Ces adaptations peuvent être effectuées annuellement de manière autonome, afin de garantir que les directives cantonales soient mises en œuvre avec précision pour chaque année.
+
+        Vous gardez le contrôle : gérez les formations vous-même et définissez les bases de calcul nécessaires. Avec AVG2, vous restez flexible et efficace.
+    - name: "Évaluations"
+      title: "Un aperçu complet avec AVG2"
+      image: "/images/avg2/auswertungen.png"
+      text: |-
+        Avec AVG2, vous accédez à des évaluations détaillées. Vous pouvez consulter la liste de tous les contacts des établissements, vérifier quand un utilisateur s'est connecté pour la dernière fois et constater quels documents, par exemple malgré un délai échu, n'ont pas encore été téléchargés. Ces informations sont toujours facilement accessibles et offrent des aperçus précieux sur l'état de vos processus.
+    - name: "Gestion documentaire"
+      title: "Gestion documentaire dans AVG2"
+      image: "/images/avg2/dokumentenablage.png"
+      text: |-
+        Partagez des documents dans AVG2 de manière ciblée : soit en interne avec les responsables cantonaux, avec tous les prestataires ou exclusivement par prestataire. AVG2 prend en charge cette distribution différenciée de documents grâce à différents espaces de stockage, afin de répondre aux différentes exigences.
+
+        Les documents pertinents pour tous les prestataires peuvent être déposés de manière centralisée dans l'espace de stockage général. Les documents spécifiques, destinés uniquement à certains prestataires, peuvent être téléchargés directement dans leur espace individuel. Vous vous assurez ainsi que toutes les parties prenantes ont toujours accès aux informations qui les concernent.
+    - name: "Multilinguisme"
+      title: "Multilinguisme dans AVG2"
+      image: "/images/avg2/languages.png"
+      text: |-
+        L'interface utilisateur d'AVG2 prend en charge le multilinguisme avec des textes configurables de manière flexible et facilement modifiables et affichables en allemand, français, italien ou anglais. Utilisez le mode de traduction pour l'adaptation directe dans l'application ou l'export Excel pour effectuer les traductions confortablement hors ligne.
+    - name: "Aide utilisateur"
+      title: "Aide utilisateur dans AVG2"
+      image: "/images/avg2/userhelp.png"
+      text: |-
+        AVG2 offre un support étendu grâce à des textes d'aide personnalisables dans chaque vue, disponibles non seulement en plusieurs langues, mais aussi spécifiquement adaptés aux besoins des utilisateurs. Vous pouvez y déposer des informations importantes, des termes techniques ainsi que des indications juridiques pour offrir aux prestataires des instructions précises et une sécurité juridique lors de l'utilisation du logiciel. Si aucun texte d'aide n'est déposé, la vue d'aide reste masquée pour garder l'interface utilisateur claire et lisible. De plus, AVG2 prend en charge l'intégration de captures d'écran pour fournir des instructions visuelles et améliorer davantage la compréhension des utilisateurs.
+    - name: "Gestion des tâches"
+      title: "Gestion des tâches dans AVG2"
+      image: "/images/avg2/taskboard.png"
+      text: |-
+        Dans AVG2, vous pouvez créer des tâches comme aide-mémoire et les assortir de délais. Cela vous aide à garder une vue d'ensemble sur les échéances et obligations importantes et à vous assurer que tout est accompli dans les temps.
+    - name: "Autorisations"
+      title: "Flexible et sécurisé avec AVG2"
+      image: "/images/avg2/security.png"
+      text: |-
+        AVG2 permet la définition de différents rôles personnalisables pour les collaborateurs cantonaux et les établissements. Cela garantit une grande flexibilité et une sécurité maximale dans le traitement des données et processus sensibles.
+    - name: "Releases"
+      title: "Prochaines releases dans AVG2"
+      text: ""
+    - name: "Technologie"
+      title: "Technologie dans AVG2"
+      text: |-
+       | Composant | Technologie |
+       |---|---|
+       | Plateforme | .NET 10 |
+       | Frontend | Blazor WebAssembly (WASM) |
+       | Backend | ASP.NET Core Web API |
+       | Base de données | Microsoft SQL Server 2022 |
+       | Conteneurisation | Docker Images |
+       | Registre de conteneurs | Azure Container Registry |
+       | **Aspect** | **Technologie** |
+       | Génération SBOM | CycloneDX |
+       | Gestion des vulnérabilités | DependencyTrack |
+       | Authentification | OpenID Connect |
+       | Autorisation | Implémentation propre via base de données |
+       | **Élément** | **Technologie** |
+       | Framework CSS | Bootstrap |
+       | Bibliothèque de composants | Telerik UI for Blazor |
+       > **Remarque :** OpenID Connect est utilisé exclusivement comme protocole pour la connexion à un fournisseur d'identité existant du client. Un serveur d'autorisation ne fait pas partie du périmètre de livraison, mais peut être conçu, intégré ou configuré par nos soins si nécessaire. La connexion à des fournisseurs courants tels qu'AGOV ou SwissID est en principe possible et a déjà été réalisée avec succès.
