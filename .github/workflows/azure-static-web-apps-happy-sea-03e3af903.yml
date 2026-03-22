@@ -30,7 +30,7 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
       - name: Build Hugo
-        run: hugo --minify
+        run: hugo --minify --baseURL "${{ vars.BASE_URL || '/' }}"
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
       - name: Get Id Token
