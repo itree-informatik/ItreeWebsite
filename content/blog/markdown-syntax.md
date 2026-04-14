@@ -1,8 +1,9 @@
 +++
 author = "itree informatik"
 title = "Markdown Grundlagen"
-date = "2026-03-21"
+date = "2026-03-23"
 description = "Ein einfacher Leitfaden für Markdown – die Textformatierung, die Sie für GitHub Issues brauchen. Keine Vorkenntnisse nötig."
+image = "images/markdown.png"
 tags = [
     "markdown",
     "github",

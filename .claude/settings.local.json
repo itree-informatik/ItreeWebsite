@@ -43,7 +43,8 @@
       "Bash(for f:*)",
       "Bash(do echo:*)",
       "Read(//c/Users/dariu/AppData/Local/hugo_cache/modules/filecache/modules/pkg/mod/github.com/writeonlycode/hugo-up-business@v0.0.0-20250709124836-33d421f28c8c/layouts/partials/**)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(curl -sL -o C:/repos/ItreeWebsite/assets/images/customer/sg.png \"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Coat_of_arms_of_Canton_of_St._Gallen.svg/640px-Coat_of_arms_of_Canton_of_St._Gallen.svg.png\")"
     ]
   }
 }

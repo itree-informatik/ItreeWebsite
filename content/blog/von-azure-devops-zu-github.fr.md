@@ -1,8 +1,9 @@
 +++
 author = "itree informatik"
 title = "D'Azure DevOps à GitHub"
-date = "2026-03-21"
+date = "2026-03-22"
 description = "Pourquoi nous avons consolidé l'ensemble de notre plateforme de développement sur GitHub – et ce que cela signifie pour nos clients."
+image = "images/github.png"
 tags = [
     "github",
     "azure-devops",

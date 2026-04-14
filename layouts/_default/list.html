@@ -9,12 +9,12 @@
       {{ end }}
       <div class="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
         {{ range (.Paginate .RegularPages).Pages }}
-          <a class="border-primary/25 h-full rounded border hover:shadow-lg transition-shadow duration-300" href="{{ .Permalink }}">
-            <div class="aspect-video">
+          <a class="border-primary/25 flex h-[600px] flex-col rounded border hover:shadow-lg transition-shadow duration-300" href="{{ .Permalink }}">
+            <div class="flex h-[365px] shrink-0 items-center justify-center overflow-hidden">
               {{ with .Params.image }}
-                {{ partial "utilities/image" (dict "src" .) }}
+                {{ partial "utilities/image" (dict "src" . "class" "h-full w-full object-contain p-6") }}
               {{ else }}
-                {{ partial "utilities/image" (dict "src" "images/services-web-development.png") }}
+                {{ partial "utilities/image" (dict "src" "images/services-web-development.png" "class" "h-full w-full object-contain") }}
               {{ end }}
             </div>
             <div class="p-6">
