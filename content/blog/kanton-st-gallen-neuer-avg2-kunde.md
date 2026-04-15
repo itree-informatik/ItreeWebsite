@@ -61,4 +61,4 @@ Neue Kunden sind immer ein Vertrauensbeweis – und der Kanton St. Gallen ist f�
 
 Wir bedanken uns beim Gesundheitsdepartement St. Gallen für das entgegengebrachte Vertrauen und freuen uns auf die gemeinsame Arbeit in den kommenden Monaten.
 
-> **Grüezi Sanggalla – mir freued üs uf d'Zämmeschaffe!**
+> **Grüezi Sanggale – mir freued üs uf d'Zämmeschaffe!**
