@@ -6,8 +6,6 @@ de:
       title: "Die Fachlösung für Ausbildungsverpflichtungen im Gesundheitswesen"
       text: "AVG2 ist die spezialisierte Softwarelösung für Kantone zur Verwaltung der Ausbildungsverpflichtung nicht-universitärer Gesundheitsberufe. Die webbasierte Anwendung ermöglicht die präzise Erfassung, Steuerung und Auswertung von Ausbildungsleistungen sowie die Berechnung von Subventionen oder Strafzahlungen. Dank modularer Architektur und individueller Anpassung wird AVG2 exakt auf die gesetzlichen und organisatorischen Anforderungen Ihres Kantons zugeschnitten – flexibel, skalierbar und praxiserprobt."
       buttons:
-        - label: "Demo"
-          link: "https://avg2.itree.ch"
         - label: "Mehr"
           link: "/avg2/"
 
@@ -19,7 +17,5 @@ fr:
       title: "La solution spécialisée pour les obligations de formation dans le secteur de la santé"
       text: "AVG2 est la solution logicielle spécialisée pour les cantons, dédiée à la gestion de l'obligation de formation des professions de santé non universitaires. L'application web permet la saisie précise, le pilotage et l'évaluation des prestations de formation ainsi que le calcul des subventions ou des pénalités. Grâce à son architecture modulaire et sa personnalisation individuelle, AVG2 est adapté exactement aux exigences légales et organisationnelles de votre canton – flexible, évolutif et éprouvé en pratique."
       buttons:
-        - label: "Démo"
-          link: "https://avg2.itree.ch"
         - label: "En savoir plus"
           link: "/fr/avg2/"
