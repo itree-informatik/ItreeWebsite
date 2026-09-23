@@ -3,42 +3,45 @@
     {{ with .title }}
       <h1 class="text-primary mb-4 text-center text-4xl font-bold xl:text-6xl">{{ . }}</h1>
     {{ end }}
-    {{ with .featured1 }}
+
+    {{/* Alle Testimonials stehen zwischen einem Anfangs- (oben) und einem End-Anführungszeichen (unten). Layout alterniert: gerader Index = Bild links, ungerader Index = Bild rechts. Ohne Bild nimmt das Zitat die volle Breite ein. */}}
+    {{ $last := sub (len .featured) 1 }}
+    {{ range $i, $item := .featured }}
+      {{ $imageLeft := eq (mod $i 2) 0 }}
+      {{ $textCols := cond (ne $item.image nil) "xl:col-span-7" "xl:col-span-12" }}
       <div class="grid grid-cols-12">
-        <div class="col-span-12 flex flex-col justify-center xl:col-span-5">
-          {{ with .image }}
-            {{ partial "utilities/image.html" ( dict "src" . "class" "mx-auto object-center object-contain") }}
+        {{ if and $item.image $imageLeft }}
+          <div class="col-span-12 flex flex-col justify-center xl:col-span-5">
+            {{ partial "utilities/image.html" (dict "src" $item.image "class" "mx-auto object-center object-contain") }}
+          </div>
+        {{ end }}
+
+
+        <div class="{{ $textCols }} col-span-12 flex flex-col justify-center">
+          {{ if eq $i 0 }}
+            <div class="mb-4 flex items-center justify-start">
+              {{ partial "utilities/image" (dict "src" "images/testimonials-left-quote.png") }}
+            </div>
+          {{ end }}
+          <div class="flex flex-col items-start gap-8 rounded p-16 shadow-xl xl:flex-row">
+            <p>
+              "{{ $item.text | markdownify }}"
+              <span class="text-primary mt-4 block font-bold">- {{ $item.client }}</span>
+            </p>
+          </div>
+          {{ if eq $i $last }}
+            <div class="mt-4 flex items-center justify-end">
+              {{ partial "utilities/image" (dict "src" "images/testimonials-right-quote.png") }}
+            </div>
           {{ end }}
         </div>
-        <div class="col-span-12 flex flex-col justify-center xl:col-span-7">
-          <div class="mb-4 flex items-center justify-start">
-            {{ partial "utilities/image" (dict "src" "images/testimonials-left-quote.png") }}
-          </div>
-          <div class="flex flex-col items-start gap-8 rounded p-16 shadow-xl xl:flex-row">
-            <p class="">"{{ .text | markdownify }}" <span class="text-primary whitespace-nowrap font-bold">- {{ .client }}</span></p>
-          </div>
-        </div>
-      </div>
 
-    {{ end }}
-
-    {{ with .featured2 }}
-      <div class="grid grid-cols-12">
-        <div class="col-span-12 flex flex-col justify-center xl:col-span-7">
-          <div class="flex flex-col items-start gap-8 rounded p-16 shadow-xl xl:flex-row">
-            <p class="">"{{ .text | markdownify }}" <span class="text-primary whitespace-nowrap font-bold">- {{ .client }}</span></p>
+        {{ if and $item.image (not $imageLeft) }}
+          <div class="col-span-12 flex flex-col justify-center xl:col-span-5">
+            {{ partial "utilities/image.html" (dict "src" $item.image "class" "mx-auto object-center object-contain") }}
           </div>
-          <div class="mt-4 flex items-center justify-end">
-            {{ partial "utilities/image" (dict "src" "images/testimonials-right-quote.png") }}
-          </div>
-        </div>
-        <div class="col-span-12 flex flex-col justify-center xl:col-span-5">
-          {{ with .image }}
-            {{ partial "utilities/image.html" ( dict "src" . "class" "mx-auto object-center object-contain") }}
-          {{ end }}
-        </div>
+        {{ end }}
       </div>
     {{ end }}
-
   </div>
 </section>
