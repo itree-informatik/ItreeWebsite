@@ -25,7 +25,8 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "latest"
+          # Feste Version statt "latest": Hugo 0.166 erlaubt tailwindcss nicht mehr per Default (security.exec.allow) – Upgrade bewusst testen
+          hugo-version: "0.156.0"
           extended: true
       - name: Install Node dependencies
         run: npm ci
