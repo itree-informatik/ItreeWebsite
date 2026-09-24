@@ -83,6 +83,49 @@ body {
     }
 }
 
+/* Inhalte beim Scrollen einblenden (Startseite, AVG2, Services) – Klassen und Richtung setzt assets/js/shared/reveal.js */
+.reveal-section {
+    overflow-x: clip;
+}
+
+/* Bis reveal.js die Ziele vorbereitet hat, bleiben die animierten Bereiche unsichtbar (kein Aufblitzen beim Betreten) */
+.reveal-pending #brands ~ section,
+.reveal-pending [data-reveal-children] {
+    opacity: 0;
+}
+
+/* Übergang nur beim Einblenden – das Verstecken beim Start passiert sofort, sonst verpufft die Animation bei Inhalten, die schon im Bild sind */
+.reveal.is-revealed {
+    transition:
+        opacity 0.8s ease-out,
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal:not(.is-revealed) {
+    opacity: 0;
+}
+
+.reveal[data-reveal="up"]:not(.is-revealed) {
+    transform: translateY(3rem);
+}
+
+.reveal[data-reveal="left"]:not(.is-revealed) {
+    transform: translateX(-5rem);
+}
+
+.reveal[data-reveal="right"]:not(.is-revealed) {
+    transform: translateX(5rem);
+}
+
+@media print {
+    .reveal,
+    .reveal-pending #brands ~ section,
+    .reveal-pending [data-reveal-children] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
 /* Sidebar nur anzeigen wenn genug Platz neben dem Container vorhanden ist */
 .sidebar-nav {
     display: none;

@@ -116,6 +116,20 @@
       {{ end }}
       <script src="{{ $main.RelPermalink }}" defer></script>
     {{ end }}
+    {{ if or .IsHome (in (slice "avg2" "services") .Layout) }}
+      <!-- Animierte Bereiche bis zum Start von reveal.js verbergen; Notfall-Freigabe, falls das Script nicht lädt -->
+      <script>
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+          document.documentElement.classList.add('reveal-pending')
+          setTimeout(() => document.documentElement.classList.remove('reveal-pending'), 3000)
+        }
+      </script>
+      {{ with resources.Get "js/shared/reveal.js" }}
+        {{ with . | js.Build (dict "minify" true) | fingerprint }}
+          <script src="{{ .RelPermalink }}" defer></script>
+        {{ end }}
+      {{ end }}
+    {{ end }}
   </head>
   <body class="">
     <div class="flex min-h-screen flex-col">

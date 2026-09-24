@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ $d := index .Site.Data.avg2 .Site.Language.Lang }}
 
-<div class="relative">
+<div class="relative overflow-x-clip">
   <!-- Sidebar Navigation -->
   <aside class="sidebar-nav fixed top-24 left-0 w-56 pl-4 pr-2">
     <nav class="space-y-2">
@@ -33,7 +33,7 @@
 
     {{ with $d.chapters }}
     {{ range $index, $chapter := . }}
-    <section id="{{ $chapter.name | urlize }}" class="chapter-section mb-8">
+    <section id="{{ $chapter.name | urlize }}" class="chapter-section mb-8" data-reveal-children>
       {{ if $chapter.image }}
       <!-- Mit Bild: 3 Spalten -->
       <div class="grid xl:grid-cols-3 xl:gap-8">
