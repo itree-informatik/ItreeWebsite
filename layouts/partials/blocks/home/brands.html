@@ -1,0 +1,29 @@
+<section id="brands" class="py-8 xl:py-16">
+  <div class="container mx-auto px-4">
+    {{ with .title }}
+      <h1 class="text-primary mb-16 text-center text-2xl font-semibold">{{ . }}</h1>
+    {{ end }}
+    {{ if .items }}
+      {{/* Alle Logos erhalten dieselbe Fläche statt dieselbe Höhe: Höhe = Referenzhöhe × √(Referenz-Seitenverhältnis / Seitenverhältnis). Sehr breite Wortmarken (z. B. Kanton Solothurn) werden dadurch flacher, kompakte Logos etwas höher. */}}
+      {{ $refHeight := 2.125 }}
+      {{ $refRatio := 3.2 }}
+      {{/* Endlos-Karussell: Die Liste wird zweimal gerendert (die Kopie ist für Screenreader ausgeblendet), die Animation in styles.css verschiebt die Spur um genau eine Liste. */}}
+      <div class="brands-marquee @container overflow-hidden">
+        <div class="brands-track flex w-max">
+          {{ range $copy := slice false true }}
+            <ul class="flex min-w-[100cqw] shrink-0 items-center justify-around gap-16 pr-16" {{ if $copy }}aria-hidden="true"{{ end }}>
+              {{ range $.items }}
+                {{ $image := resources.Get . }}
+                {{ $ratio := div (float $image.Width) $image.Height }}
+                {{ $height := mul $refHeight (math.Sqrt (div $refRatio $ratio)) }}
+                <li class="shrink-0" style="height: {{ printf "%.3f" $height }}rem">
+                  {{ partial "utilities/image.html" (dict "src" . "class" "h-full w-auto max-w-none") }}
+                </li>
+              {{ end }}
+            </ul>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+  </div>
+</section>

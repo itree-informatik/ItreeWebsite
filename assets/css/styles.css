@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+/* Explizit einbinden: hugo_stats.json steht in .gitignore und wird vom Tailwind-Auto-Scan übersprungen – ohne diese Zeile fehlen alle Klassen, die nur in Theme-Templates vorkommen (z. B. Hero, Portfolio). */
+@source "hugo_stats.json";
 @plugin "@tailwindcss/typography";
 
 @import './shared/_pagination.css';
@@ -36,6 +38,49 @@ body {
 
 .pt-8 {
     padding-top: calc(var(--spacing) * 8)
+}
+
+/* Kundenlogos als Endlos-Karussell: Die Spur enthält die Logoliste zweimal, -50 % entspricht genau einer Liste – danach springt die Animation nahtlos zurück. */
+@keyframes brands-marquee {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.brands-marquee {
+    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.brands-track {
+    animation: brands-marquee 40s linear infinite;
+}
+
+.brands-marquee:hover .brands-track {
+    animation-play-state: paused;
+}
+
+/* Bei «Bewegung reduzieren» statische, umbrechende Logoliste ohne Kopie */
+@media (prefers-reduced-motion: reduce) {
+    .brands-marquee {
+        mask-image: none;
+    }
+
+    .brands-track {
+        width: auto;
+        animation: none;
+    }
+
+    .brands-track > ul {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        padding-right: 0;
+    }
+
+    .brands-track > ul[aria-hidden="true"] {
+        display: none;
+    }
 }
 
 /* Sidebar nur anzeigen wenn genug Platz neben dem Container vorhanden ist */
