@@ -3,6 +3,7 @@ author = "itree informatik"
 title = "Von Telerik zu MudBlazor"
 date = "2026-10-07"
 description = "Auf der Suche nach einer Open-Source-Lösung für DoeA sind wir auf MudBlazor gestossen. Nach DoeA und unserem Intranet steigen wir jetzt komplett von Telerik UI for Blazor auf MudBlazor um."
+image = "images/mudblazor.png"
 tags = [
     "blazor",
     "mudblazor",
