@@ -19,7 +19,7 @@ categories = [
 ]
 +++
 
-Jusqu'à présent, nous avons construit les interfaces de nos applications Blazor avec Telerik UI for Blazor. Nous passons désormais entièrement à MudBlazor – une bibliothèque de composants open source que nous avons découverte dans le cadre de DoeA.
+Jusqu'à présent, nous avons construit les interfaces de nos applications Blazor avec Telerik UI for Blazor. Nous passons désormais entièrement à MudBlazor – une bibliothèque de composants open source que nous avons découverte dans le cadre de [DoeA (« Dienst öffentliche Ausschreibungen », service des appels d'offres publics)](/fr/blog/doea-neu-gebaut/).
 <!--more-->
 
 ## Le point de départ : DoeA et la LMETA

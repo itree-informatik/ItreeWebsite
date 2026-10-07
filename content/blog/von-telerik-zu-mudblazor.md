@@ -19,7 +19,7 @@ categories = [
 ]
 +++
 
-Die Oberflächen unserer Blazor-Anwendungen haben wir bisher mit Telerik UI for Blazor gebaut. Jetzt steigen wir komplett auf MudBlazor um – eine Open-Source-Komponentenbibliothek, auf die wir im Rahmen von DoeA gestossen sind.
+Die Oberflächen unserer Blazor-Anwendungen haben wir bisher mit Telerik UI for Blazor gebaut. Jetzt steigen wir komplett auf MudBlazor um – eine Open-Source-Komponentenbibliothek, auf die wir im Rahmen von [DoeA (Dienst öffentliche Ausschreibungen)](/blog/doea-neu-gebaut/) gestossen sind.
 <!--more-->
 
 ## Die Ausgangslage: DoeA und das EMBAG
