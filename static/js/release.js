@@ -14,7 +14,7 @@ function getEasterSunday(year) {
   return new Date(year, month - 1, day);
 }
 
-function getFirstMondayAvoidingHolidays(year, month) {
+function getNthMondayAvoidingHolidays(year, month, n = 1) {
   let date = new Date(year, month - 1, 1);
 
   const holidays = [
@@ -23,11 +23,17 @@ function getFirstMondayAvoidingHolidays(year, month) {
     new Date(getEasterSunday(year).getTime() + 24 * 60 * 60 * 1000)
   ];
 
-  while (
-    date.getDay() !== 1 || 
-    holidays.some(h => h.toDateString() === date.toDateString())
-  ) {
+  // Zum ersten Montag des Monats springen
+  while (date.getDay() !== 1) {
     date.setDate(date.getDate() + 1);
+  }
+
+  // Zum n-ten Montag weitergehen
+  date.setDate(date.getDate() + (n - 1) * 7);
+
+  // Fällt der Montag auf einen Feiertag, auf den nächsten Montag ausweichen
+  while (holidays.some(h => h.toDateString() === date.toDateString())) {
+    date.setDate(date.getDate() + 7);
   }
 
   return date;
@@ -50,7 +56,10 @@ function getNextReleaseDatesWithNames(count = 4) {
 
   for (const year of [currentYear, currentYear + 1]) {
     for (const month of releaseMonths) {
-      const date = getFirstMondayAvoidingHolidays(year, month);
+      // Winterrelease am zweiten Montag im Januar (wegen Feiertagen und Wochenende um den Jahreswechsel),
+      // alle anderen Releases am ersten Montag des Monats
+      const mondayIndex = month === 1 ? 2 : 1;
+      const date = getNthMondayAvoidingHolidays(year, month, mondayIndex);
 
       if (date >= today) {
         dates.push({
