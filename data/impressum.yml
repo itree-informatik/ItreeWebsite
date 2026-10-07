@@ -14,6 +14,7 @@ de:
     **Handelsregister Nr:** CHE-101.169.493
   credits: |-
     Diese Website wurde mit Hugo erstellt und verwendet das Template "[hugo-up-business](https://github.com/writeonlycode/hugo-up-business)" von writeonlycode.
+    Bei der Entwicklung dieser Website und beim Verfassen der Inhalte unterstützt uns [Claude](https://claude.com), das KI-Modell von [Anthropic](https://www.anthropic.com). Die französischen Texte übersetzt Claude vollständig aus dem Deutschen. Massgebend ist die deutsche Fassung.
 
 fr:
   title: "Mentions légales"
@@ -31,3 +32,4 @@ fr:
     **N° du registre du commerce :** CHE-101.169.493
   credits: |-
     Ce site a été créé avec Hugo et utilise le template « [hugo-up-business](https://github.com/writeonlycode/hugo-up-business) » de writeonlycode.
+    Pour le développement de ce site et la rédaction des contenus, nous sommes assistés par [Claude](https://claude.com), le modèle d'IA d'[Anthropic](https://www.anthropic.com). Les textes en français sont entièrement traduits de l'allemand par Claude. La version allemande fait foi.
