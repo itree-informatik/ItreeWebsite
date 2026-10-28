@@ -31,7 +31,6 @@
       "Bash(xargs ls:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)",
       "Bash(git mv:*)",
       "Bash(git ls-files:*)",
       "Bash(git checkout:*)",
