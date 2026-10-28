@@ -140,7 +140,7 @@ de:
 
         Die Anmeldung führt vom Browser über den Identity Provider des Kunden zum AVG2-Server. Der Server erhält vom Identity Provider die E-Mail-Adresse der Person und ordnet sie der in AVG2 erfassten Person zu. Rollen und Berechtigungen kommen aus AVG2, nicht vom Identity Provider.
 
-        Der Kanton erfasst die Ansprechpersonen der Betriebe. Die Ansprechperson erfasst und verwaltet die Datenlieferanten ihres Betriebs. Wer sich beim Identity Provider anmeldet, ohne in AVG2 erfasst zu sein, erhält keine Rolle und damit keinen Zugriff.
+        Wer welche Benutzer erfasst und verwaltet, beschreibt der Abschnitt «Berechtigungsverwaltung» im Kapitel [«Sicherheit»](/avg2/#sicherheit). Wer sich beim Identity Provider anmeldet, ohne in AVG2 erfasst zu sein, erhält keine Rolle und damit keinen Zugriff.
 
         ### Erfassung, Verarbeitung und Ausgabe
 
@@ -173,7 +173,31 @@ de:
         - Jeder geschützte Endpunkt muss in der Berechtigungsverwaltung der Datenbank registriert sein. Anfragen an einen nicht registrierten Endpunkt werden abgelehnt.
         - Rollen erhalten Berechtigungspakete mit einer Stufe: Lesen, Schreiben, erweitert oder Administration.
         - Bei betriebsbezogenen Daten prüft der Server zusätzlich, ob die Person für diesen Betrieb berechtigt ist: über eine Rolle am Betrieb selbst oder an seiner Trägerschaft.
-        - Rollen und Berechtigungspakete richtet jeder Kanton in der Applikation selbst ein.
+        ### Berechtigungsverwaltung
+
+        Rollen und Berechtigungspakete richten wir ein. Kundenspezifische Anforderungen setzen wir bei Bedarf um. AVG2 unterscheidet zwei Rollentypen.
+
+        #### Rollentyp Betrieb
+
+        - Zu jedem Betrieb bzw. jeder Trägerschaft gibt es immer eine Ansprechperson. Sie ist dem Kanton offiziell bekannt und wird vom Kanton erfasst.
+        - Die Ansprechperson kann die Dateneingabe an Personen mit der Rolle Datenlieferant delegieren. Sie verwaltet selbst, welche Personen Zugriff auf die Applikation und auf ihren Betrieb haben.
+        - Für den Kanton bleibt die Ansprechperson massgebend: Sie prüft die Daten, gibt sie frei und ist für den Ablauf verantwortlich. Wie sie die Erfassung intern delegiert, ist ihre Sache.
+        - Eine Person kann mehreren Betrieben mit unterschiedlichen Rollen zugeordnet sein, z. B. bei Betrieb A als Ansprechperson und bei Betrieb B als Datenlieferant.
+
+        #### Rollentyp Applikation
+
+        Globale Rollen der Applikation:
+
+        - **Systemadministrator:** standardmässig der Support von itree, auf Wunsch auch der Kunde.
+        - **Administrator:** verantwortlich für die Konfiguration der Stammdaten.
+        - **Sachbearbeiter:** verantwortlich für die operativen Aufgaben. Oft gibt es keinen Sachbearbeiter, dann übernimmt der Administrator diese Aufgaben.
+        - **Datenleser:** Rolle für Audits.
+
+        #### Nutzung und inaktive Benutzer
+
+        AVG2 ist keine Applikation für die tägliche Arbeit. In der Regel fordert der Kanton die Leistungserbringer zu einem bestimmten Zeitpunkt auf, ihre Daten zu erfassen. Nach dem Erfassungszeitraum starten die Prozesse, daraus ergeben sich Rückfragen und Verfügungen. Benutzer melden sich deshalb oft monatelang nicht an, weil sie nichts aktiv tun müssen.
+
+        Ein automatisches Sperren inaktiver Benutzer ist darum nicht vorgesehen. Die Ansprechpersonen sind dem Kanton offiziell bekannt, dafür bestehen Meldeprozesse ausserhalb von AVG2. Personelle Wechsel werden deshalb organisatorisch geregelt, nicht in AVG2. Den Zeitpunkt der letzten Anmeldung sieht der Kanton in den Auswertungen.
 
         ### Eingaben
 
@@ -191,7 +215,8 @@ de:
         ### Nachvollziehbarkeit
 
         - Die Stammdaten und die Daten der Betriebe speichern, wer sie wann erfasst und zuletzt geändert hat.
-        - Die Grundlagendaten der Betriebe werden mit Status und Begründung historisiert. Stammdaten werden pro Jahr eingefroren. Frühere Verfügungen und Abrechnungen bleiben damit nachvollziehbar.
+        - Die Grundlagendaten der Betriebe werden mit Status und Begründung historisiert.
+        - Stammdaten werden pro Jahr eingefroren. Eingefrorene Jahre lassen sich nicht einfach bearbeiten. Das ist gewollt: Spätere Änderungen wirken nicht rückwirkend auf frühere Jahre (Regressionssicherheit). Frühere Verfügungen und Abrechnungen bleiben damit nachvollziehbar.
         - Ein Applikationsprotokoll (Serilog) schreibt in die Datenbank und als JSON auf die Konsole, mit einer Trace-ID pro Anfrage. Berechtigte Rollen sehen es in der Applikation.
         - Der E-Mail-Versand wird mit Empfänger, Betreff, Status und auslösender Person protokolliert.
         - Bei unerwarteten Fehlern erhält der Browser nur eine allgemeine, übersetzte Fehlermeldung. Die Details stehen nur im Protokoll.
@@ -363,14 +388,14 @@ fr:
 
         La connexion passe du navigateur au fournisseur d'identité du client, puis au serveur AVG2. Le fournisseur d'identité transmet au serveur l'adresse e-mail de la personne, que le serveur rattache à la personne enregistrée dans AVG2. Les rôles et les autorisations proviennent d'AVG2, et non du fournisseur d'identité.
 
-        Le canton enregistre les personnes de référence des établissements. Chaque personne de référence enregistre et gère les fournisseurs de données de son établissement. Quiconque se connecte auprès du fournisseur d'identité sans être enregistré dans AVG2 n'obtient aucun rôle, et donc aucun accès.
+        La section « Gestion des autorisations » du chapitre [« Sécurité »](/avg2/#s%25C3%25A9curit%25C3%25A9) décrit qui enregistre et gère quels utilisateurs. Quiconque se connecte auprès du fournisseur d'identité sans être enregistré dans AVG2 n'obtient aucun rôle, et donc aucun accès.
 
         ### Saisie, traitement et restitution
 
         | Étape | Acteurs | Déroulement |
         |---|---|---|
         | Saisie | Personnel cantonal | gère les données de base, les paramètres et les modèles, et pilote les processus |
-        | Saisie | Établissements (personnes de référence, fournisseurs de données) | saisissent leurs données (indicateurs tels que postes, heures et prestations de formation) et déposent les justificatifs |
+        | Saisie | Établissements (interlocuteurs, fournisseurs de données) | saisissent leurs données (indicateurs tels que postes, heures et prestations de formation) et déposent les justificatifs |
         | Traitement | Serveur AVG2 | contrôle et calcule les données, génère les documents et les enregistre dans le stockage de fichiers |
         | Restitution | Établissements | téléchargent leurs documents dans AVG2, chaque téléchargement étant journalisé |
         | Restitution | Serveur de messagerie de l'exploitant | envoie les notifications par e-mail, chaque envoi étant journalisé |
@@ -396,7 +421,31 @@ fr:
         - Chaque point de terminaison protégé doit être enregistré dans la gestion des autorisations de la base de données. Les requêtes vers un point de terminaison non enregistré sont refusées.
         - Les rôles reçoivent des paquets d'autorisations assortis d'un niveau : lecture, écriture, étendu ou administration.
         - Pour les données liées à un établissement, le serveur vérifie en outre que la personne est autorisée pour cet établissement : par un rôle au sein de l'établissement lui-même ou de son organisme responsable.
-        - Chaque canton configure lui-même les rôles et les paquets d'autorisations dans l'application.
+        ### Gestion des autorisations
+
+        Nous configurons les rôles et les paquets d'autorisations et mettons en œuvre, si nécessaire, des exigences spécifiques au client. AVG2 distingue deux types de rôles.
+
+        #### Type de rôle Établissement
+
+        - Chaque établissement ou organisme responsable dispose toujours d'un interlocuteur. Celui-ci est officiellement connu du canton, qui l'enregistre dans AVG2.
+        - L'interlocuteur peut déléguer la saisie des données à des personnes ayant le rôle de fournisseur de données. Il gère lui-même les personnes qui ont accès à l'application et à son établissement.
+        - Pour le canton, l'interlocuteur reste la personne de référence : il vérifie les données, les valide et répond du bon déroulement. La manière dont il délègue la saisie en interne relève de son ressort.
+        - Une personne peut être rattachée à plusieurs établissements avec des rôles différents, p. ex. interlocuteur pour l'établissement A et fournisseur de données pour l'établissement B.
+
+        #### Type de rôle Application
+
+        Rôles globaux de l'application :
+
+        - **Administrateur système :** par défaut le support d'itree, sur demande également le client.
+        - **Administrateur :** responsable de la configuration des données de base.
+        - **Responsable du dossier :** chargé des tâches opérationnelles. Souvent, il n'y a pas de responsable du dossier et l'administrateur assume ces tâches.
+        - **Lecteur de données :** rôle destiné aux audits.
+
+        #### Utilisation et utilisateurs inactifs
+
+        AVG2 n'est pas une application utilisée au quotidien. En règle générale, le canton invite à un moment donné les prestataires à saisir leurs données. Une fois la période de saisie terminée, les processus démarrent et donnent lieu à des demandes de précisions et à des décisions. Il est donc fréquent que des utilisateurs ne se connectent pas pendant plusieurs mois, faute d'action à effectuer.
+
+        C'est pourquoi aucun blocage automatique des utilisateurs inactifs n'est prévu. Les interlocuteurs étant officiellement connus du canton, des processus de notification existent en dehors d'AVG2. Les changements de personnes sont ainsi réglés sur le plan organisationnel, et non dans AVG2. Le canton peut consulter la date de la dernière connexion dans les évaluations.
 
         ### Saisies
 
@@ -414,7 +463,8 @@ fr:
         ### Traçabilité
 
         - Les données de base et les données des établissements indiquent qui les a saisies et modifiées en dernier, et à quel moment.
-        - Les données saisies par les établissements sont historisées avec leur statut et une justification. Les données de base sont figées par année, ce qui garantit la traçabilité des décisions et décomptes antérieurs.
+        - Les données saisies par les établissements sont historisées avec leur statut et une justification.
+        - Les données de base sont figées par année. Une année figée ne peut pas être simplement modifiée. C'est voulu : les modifications ultérieures n'ont pas d'effet rétroactif sur les années précédentes (non-régression). Les décisions et décomptes antérieurs restent ainsi traçables.
         - Un journal applicatif (Serilog) écrit dans la base de données et sur la console au format JSON, avec un identifiant de trace par requête. Les rôles autorisés peuvent le consulter dans l'application.
         - Chaque envoi d'e-mail est journalisé avec le destinataire, l'objet, le statut et la personne qui l'a déclenché.
         - En cas d'erreur inattendue, le navigateur ne reçoit qu'un message d'erreur générique et traduit. Les détails figurent uniquement dans le journal.
