@@ -94,7 +94,7 @@ de:
        | Container Registry | Azure Container Registry |
        | **Aspekt** | **Technologie** |
        | SBOM Generierung | CycloneDX |
-       | Vulnerability Management | DependencyTrack |
+       | Vulnerability Management | Dependency-Track |
        | Authentisierung | OpenID Connect |
        | Autorisierung | Eigene Implementation über Datenbank |
        | **Element** | **Technologie** |
@@ -104,7 +104,7 @@ de:
     - name: "Architektur"
       title: "Architektur von AVG2"
       text: |-
-        Die Kapitel «Architektur», «Datenflüsse» und «Sicherheit» beschreiben AVG2 als Produkt. Betrieb und Infrastruktur liegen beim jeweiligen Betreiber. Die eingesetzten Technologien finden Sie im Kapitel «Technologie».
+        Die Kapitel «Architektur», [«Datenflüsse»](/avg2/#datenfl%25C3%25BCsse) und [«Sicherheit»](/avg2/#sicherheit) beschreiben AVG2 als Produkt. Betrieb und Infrastruktur liegen beim jeweiligen Betreiber. Die eingesetzten Technologien finden Sie im Kapitel [«Technologie»](/avg2/#technologie).
 
         Alle Kantone erhalten dasselbe Docker-Image. Jeder Kanton hat eine eigene Installation mit eigener Datenbank, Unterschiede zwischen den Kantonen werden über Konfiguration gesteuert. Zwischen den Kantonen gibt es keine gemeinsamen Daten.
 
@@ -114,7 +114,7 @@ de:
 
         | Baustein | Aufgabe |
         |---|---|
-        | Browser | Die Oberfläche ist eine Blazor-WebAssembly-Anwendung, die im Browser läuft. Im Browser liegen keine Zugriffstokens, die Sitzung läuft über ein Cookie (siehe Kapitel «Sicherheit»). Zusätzlich lädt der Browser Bootstrap (CSS, JavaScript, Icons) vom CDN jsDelivr mit Subresource Integrity und die Schrift Roboto von Google Fonts. |
+        | Browser | Die Oberfläche ist eine Blazor-WebAssembly-Anwendung, die im Browser läuft. Im Browser liegen keine Zugriffstokens, die Sitzung läuft über ein Cookie (siehe Kapitel [«Sicherheit»](/avg2/#sicherheit)). Zusätzlich lädt der Browser Bootstrap (CSS, JavaScript, Icons) vom CDN jsDelivr mit Subresource Integrity und die Schrift Roboto von Google Fonts. |
         | Server | ASP.NET Core (.NET 10). Der Server liefert die Oberfläche aus und stellt die Web API bereit. Die Fachlogik, die Berechtigungsprüfung und die Dokumenterzeugung laufen auf dem Server. |
         | Datenbank | Microsoft SQL Server, Zugriff über Entity Framework Core. |
         | Dateiablage | Hochgeladene Dokumente, erzeugte Dokumente und Vorlagen liegen in einer Dateiablage (persistentes Volume), die Metadaten in der Datenbank. Benutzer greifen nur über die API auf Dateien zu, nie direkt auf die Ablage. |
@@ -131,7 +131,7 @@ de:
         ### Auslieferung und Betrieb
 
         - Datenbankänderungen werden als versionierte SQL-Skripte ausgeliefert und mit dem Werkzeug DbUpdater eingespielt, das als eigenes Image mitgeliefert wird.
-        - Health-Checks melden Start, Lebendigkeit und Datenbankverbindung. Optional steht ein Prometheus-Endpunkt für Metriken zur Verfügung.
+        - Health-Checks melden Start, Lauffähigkeit (Liveness) und Datenbankverbindung. Optional steht ein Prometheus-Endpunkt für Metriken zur Verfügung.
         - Für Kubernetes liefern wir ein Helm-Chart mit.
     - name: "Datenflüsse"
       title: "Datenflüsse in AVG2"
@@ -167,7 +167,7 @@ de:
         - Beim Abmelden wird das Refresh-Token beim Identity Provider widerrufen.
         - Die Zuordnung zur Person erfolgt über die E-Mail-Adresse aus dem Identity Provider. Voraussetzung ist, dass der Identity Provider verifizierte, eindeutige E-Mail-Adressen liefert. Dafür ist der Betreiber des Identity Providers verantwortlich.
 
-        ### Berechtigungen
+        ### Berechtigungsprüfung
 
         - Der Server prüft jede API-Anfrage auf Anmeldung und Berechtigung. Ausgenommen sind nur wenige Endpunkte ohne geschützte Daten, etwa für An- und Abmeldung und Health-Checks. Massgebend ist die Prüfung auf dem Server, Prüfungen im Browser steuern nur die Anzeige.
         - Jeder geschützte Endpunkt muss in der Berechtigungsverwaltung der Datenbank registriert sein. Anfragen an einen nicht registrierten Endpunkt werden abgelehnt.
@@ -181,7 +181,7 @@ de:
 
         - Zu jedem Betrieb bzw. jeder Trägerschaft gibt es immer eine Ansprechperson. Sie ist dem Kanton offiziell bekannt und wird vom Kanton erfasst.
         - Die Ansprechperson kann die Dateneingabe an Personen mit der Rolle Datenlieferant delegieren. Sie verwaltet selbst, welche Personen Zugriff auf die Applikation und auf ihren Betrieb haben.
-        - Für den Kanton bleibt die Ansprechperson massgebend: Sie prüft die Daten, gibt sie frei und ist für den Ablauf verantwortlich. Wie sie die Erfassung intern delegiert, ist ihre Sache.
+        - Für den Kanton bleibt die Ansprechperson massgebend: Sie prüft die Daten, gibt sie frei und ist für den Ablauf verantwortlich. Wie sie die Erfassung intern delegiert, liegt in ihrer Verantwortung.
         - Eine Person kann mehreren Betrieben mit unterschiedlichen Rollen zugeordnet sein, z. B. bei Betrieb A als Ansprechperson und bei Betrieb B als Datenlieferant.
 
         #### Rollentyp Applikation
@@ -208,7 +208,7 @@ de:
         ### Dateien
 
         - Die erlaubten Dateiendungen sind pro Dokumenttyp serverseitig festgelegt, nicht vom Browser.
-        - Optional prüft ein Virenscanner jeden Upload vor dem Speichern (siehe Kapitel «Architektur»).
+        - Optional prüft ein Virenscanner jeden Upload vor dem Speichern (siehe Kapitel [«Architektur»](/avg2/#architektur)).
         - Lesen, Bearbeiten, Hochladen und Löschen sind pro Rolle und Dokumenttyp berechtigt. Der Server prüft dies bei jedem Zugriff, beim Download zusätzlich mit Bezug auf den Betrieb.
         - Jeder Download eines Dokuments wird mit Person, Rolle und Zeitpunkt protokolliert. Ausgenommen sind Word-Vorlagen.
 
@@ -216,7 +216,7 @@ de:
 
         - Die Stammdaten und die Daten der Betriebe speichern, wer sie wann erfasst und zuletzt geändert hat.
         - Die Grundlagendaten der Betriebe werden mit Status und Begründung historisiert.
-        - Stammdaten werden pro Jahr eingefroren. Eingefrorene Jahre lassen sich nicht einfach bearbeiten. Das ist gewollt: Spätere Änderungen wirken nicht rückwirkend auf frühere Jahre (Regressionssicherheit). Frühere Verfügungen und Abrechnungen bleiben damit nachvollziehbar.
+        - Stammdaten werden pro Jahr eingefroren. Eingefrorene Jahre lassen sich nicht ohne Weiteres bearbeiten. Das ist gewollt: Spätere Änderungen wirken nicht rückwirkend auf frühere Jahre (Regressionssicherheit). Frühere Verfügungen und Abrechnungen bleiben damit nachvollziehbar.
         - Ein Applikationsprotokoll (Serilog) schreibt in die Datenbank und als JSON auf die Konsole, mit einer Trace-ID pro Anfrage. Berechtigte Rollen sehen es in der Applikation.
         - Der E-Mail-Versand wird mit Empfänger, Betreff, Status und auslösender Person protokolliert.
         - Bei unerwarteten Fehlern erhält der Browser nur eine allgemeine, übersetzte Fehlermeldung. Die Details stehen nur im Protokoll.
@@ -229,7 +229,7 @@ de:
 
         ### Abhängigkeiten
 
-        Für jedes Release erzeugen wir eine SBOM, die in Dependency-Track auf bekannte Schwachstellen geprüft wird (Werkzeuge siehe Kapitel «Technologie»). Die für AVG2 verantwortliche Person eines Kantons erhält Einsicht in unser Dependency-Track.
+        Für jedes Release erzeugen wir eine SBOM, die in Dependency-Track auf bekannte Schwachstellen geprüft wird (Werkzeuge siehe Kapitel [«Technologie»](/avg2/#technologie)). Die für AVG2 verantwortliche Person eines Kantons erhält Einsicht in unser Dependency-Track.
     - name: "Dokumentation"
       title: "Dokumentation zu AVG2"
       text: |-
@@ -342,7 +342,7 @@ fr:
        | Registre de conteneurs | Azure Container Registry |
        | **Aspect** | **Technologie** |
        | Génération SBOM | CycloneDX |
-       | Gestion des vulnérabilités | DependencyTrack |
+       | Gestion des vulnérabilités | Dependency-Track |
        | Authentification | OpenID Connect |
        | Autorisation | Implémentation propre via base de données |
        | **Élément** | **Technologie** |
@@ -352,7 +352,7 @@ fr:
     - name: "Architecture"
       title: "Architecture d'AVG2"
       text: |-
-        Les chapitres « Architecture », « Flux de données » et « Sécurité » décrivent AVG2 en tant que produit. L'exploitation et l'infrastructure relèvent de l'exploitant de chaque installation. Les technologies utilisées figurent au chapitre « Technologie ».
+        Les chapitres « Architecture », [« Flux de données »](/avg2/#flux-de-donn%25C3%25A9es) et [« Sécurité »](/avg2/#s%25C3%25A9curit%25C3%25A9) décrivent AVG2 en tant que produit. L'exploitation et l'infrastructure relèvent de l'exploitant de chaque installation. Les technologies utilisées figurent au chapitre [« Technologie »](/avg2/#technologie).
 
         Tous les cantons reçoivent la même image Docker. Chaque canton dispose de sa propre installation et de sa propre base de données, les différences entre cantons étant gérées par configuration. Aucune donnée n'est partagée entre les cantons.
 
@@ -362,7 +362,7 @@ fr:
 
         | Composant | Rôle |
         |---|---|
-        | Navigateur | L'interface est une application Blazor WebAssembly exécutée dans le navigateur. Le navigateur ne détient aucun jeton d'accès, la session reposant sur un cookie (voir chapitre « Sécurité »). Il charge en outre Bootstrap (CSS, JavaScript, icônes) depuis le CDN jsDelivr avec Subresource Integrity, ainsi que la police Roboto depuis Google Fonts. |
+        | Navigateur | L'interface est une application Blazor WebAssembly exécutée dans le navigateur. Le navigateur ne détient aucun jeton d'accès, la session reposant sur un cookie (voir chapitre [« Sécurité »](/avg2/#s%25C3%25A9curit%25C3%25A9)). Il charge en outre Bootstrap (CSS, JavaScript, icônes) depuis le CDN jsDelivr avec Subresource Integrity, ainsi que la police Roboto depuis Google Fonts. |
         | Serveur | ASP.NET Core (.NET 10). Le serveur fournit l'interface et met à disposition l'API web. La logique métier, le contrôle des autorisations et la génération de documents s'exécutent sur le serveur. |
         | Base de données | Microsoft SQL Server, accès via Entity Framework Core. |
         | Stockage de fichiers | Les documents déposés, les documents générés et les modèles sont conservés dans un stockage de fichiers (volume persistant), leurs métadonnées dans la base de données. Les utilisateurs n'accèdent aux fichiers que via l'API, jamais directement au stockage. |
@@ -415,7 +415,7 @@ fr:
         - À la déconnexion, le jeton de rafraîchissement (refresh token) est révoqué auprès du fournisseur d'identité.
         - Le rattachement à la personne se fait par l'adresse e-mail fournie par le fournisseur d'identité. Cela suppose que celui-ci livre des adresses e-mail vérifiées et uniques, ce qui relève de la responsabilité de son exploitant.
 
-        ### Autorisations
+        ### Contrôle des autorisations
 
         - Le serveur vérifie l'authentification et les autorisations pour chaque requête API. Seuls font exception quelques points de terminaison sans données protégées, notamment pour la connexion, la déconnexion et les health checks. Seul le contrôle effectué sur le serveur fait foi, les contrôles dans le navigateur ne servent qu'à l'affichage.
         - Chaque point de terminaison protégé doit être enregistré dans la gestion des autorisations de la base de données. Les requêtes vers un point de terminaison non enregistré sont refusées.
@@ -456,7 +456,7 @@ fr:
         ### Fichiers
 
         - Les extensions de fichier autorisées sont définies côté serveur pour chaque type de document, et non par le navigateur.
-        - En option, chaque fichier déposé est analysé par un antivirus avant son enregistrement (voir chapitre « Architecture »).
+        - En option, chaque fichier déposé est analysé par un antivirus avant son enregistrement (voir chapitre [« Architecture »](/avg2/#architecture)).
         - La consultation, la modification, le dépôt et la suppression sont autorisés par rôle et par type de document. Le serveur le vérifie à chaque accès et, pour les téléchargements, également par rapport à l'établissement concerné.
         - Chaque téléchargement d'un document est journalisé avec la personne, le rôle et l'horodatage, à l'exception des modèles Word.
 
@@ -464,7 +464,7 @@ fr:
 
         - Les données de base et les données des établissements indiquent qui les a saisies et modifiées en dernier, et à quel moment.
         - Les données saisies par les établissements sont historisées avec leur statut et une justification.
-        - Les données de base sont figées par année. Une année figée ne peut pas être simplement modifiée. C'est voulu : les modifications ultérieures n'ont pas d'effet rétroactif sur les années précédentes (non-régression). Les décisions et décomptes antérieurs restent ainsi traçables.
+        - Les données de base sont figées par année. Une année figée ne peut plus être modifiée librement. C'est voulu : les modifications ultérieures n'ont pas d'effet rétroactif sur les années précédentes (non-régression). Les décisions et décomptes antérieurs restent ainsi traçables.
         - Un journal applicatif (Serilog) écrit dans la base de données et sur la console au format JSON, avec un identifiant de trace par requête. Les rôles autorisés peuvent le consulter dans l'application.
         - Chaque envoi d'e-mail est journalisé avec le destinataire, l'objet, le statut et la personne qui l'a déclenché.
         - En cas d'erreur inattendue, le navigateur ne reçoit qu'un message d'erreur générique et traduit. Les détails figurent uniquement dans le journal.
@@ -477,7 +477,7 @@ fr:
 
         ### Dépendances
 
-        Pour chaque release, nous générons une SBOM dont les composants sont contrôlés dans Dependency-Track quant aux vulnérabilités connues (outils : voir chapitre « Technologie »). La personne responsable d'AVG2 au sein d'un canton obtient un accès en consultation à notre Dependency-Track.
+        Pour chaque release, nous générons une SBOM dont les composants sont contrôlés dans Dependency-Track quant aux vulnérabilités connues (outils : voir chapitre [« Technologie »](/avg2/#technologie)). La personne responsable d'AVG2 au sein d'un canton obtient un accès en consultation à notre Dependency-Track.
     - name: "Documentation"
       title: "Documentation d'AVG2"
       text: |-
