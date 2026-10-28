@@ -155,7 +155,7 @@ de:
 
         ### Personendaten
 
-        Zu Benutzern speichert AVG2 Name, Vorname, E-Mail-Adresse, Adresse, Telefon, Sprache, Rollen und Zeitpunkt der letzten Anmeldung. Für Auszubildende gibt es keine Felder für Personendaten, erfasst werden nur Kennzahlen. Hochgeladene Dokumente können je nach Inhalt Personendaten enthalten.
+        Zu Benutzern speichert AVG2 Name, Vorname, E-Mail-Adresse, Sprache, Rollen und Zeitpunkt der letzten Anmeldung. Adresse und Telefon sind freiwillige Angaben und werden in der Regel nicht ausgefüllt. Für Auszubildende gibt es keine Felder für Personendaten, erfasst werden nur Kennzahlen. Hochgeladene Dokumente können je nach Inhalt Personendaten enthalten.
     - name: "Sicherheit"
       title: "Sicherheitsmechanismen in AVG2"
       text: |-
@@ -403,7 +403,7 @@ fr:
 
         ### Données personnelles
 
-        Pour chaque utilisateur, AVG2 enregistre le nom, le prénom, l'adresse e-mail, l'adresse, le téléphone, la langue, les rôles ainsi que la date et l'heure de la dernière connexion. Aucun champ de données personnelles n'est prévu pour les personnes en formation, seuls des indicateurs sont saisis. Selon leur contenu, les documents déposés peuvent contenir des données personnelles.
+        Pour chaque utilisateur, AVG2 enregistre le nom, le prénom, l'adresse e-mail, la langue, les rôles ainsi que la date et l'heure de la dernière connexion. L'adresse et le numéro de téléphone sont facultatifs et ne sont généralement pas renseignés. Aucun champ de données personnelles n'est prévu pour les personnes en formation, seuls des indicateurs sont saisis. Selon leur contenu, les documents déposés peuvent contenir des données personnelles.
     - name: "Sécurité"
       title: "Mécanismes de sécurité dans AVG2"
       text: |-
