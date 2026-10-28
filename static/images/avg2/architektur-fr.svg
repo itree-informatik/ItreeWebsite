@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1270 800" width="1270" height="800" role="img" aria-label="Schéma d'architecture d'AVG2 : navigateur, serveur AVG2 avec base de données et stockage de fichiers dans une installation par canton, systèmes externes de l'exploitant et déroulement de la connexion." font-family="Inter, 'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif">
+<title>Schéma d'architecture d'AVG2 : navigateur, serveur AVG2 avec base de données et stockage de fichiers dans une installation par canton, systèmes externes de l'exploitant et déroulement de la connexion.</title>
+<defs>
+<filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0b2a5c" flood-opacity="0.10"/></filter>
+<linearGradient id="hd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0060F0"/><stop offset="1" stop-color="#3a86ff"/></linearGradient>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker>
+<marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0060F0"/></marker>
+<marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d33a77"/></marker>
+</defs>
+<path d="M250,248 L292,248 L292,52 L1200,52 L1200,158" fill="none" stroke="#d33a77" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#p)"/>
+<circle cx="292" cy="120" r="11" fill="#d33a77" stroke="#fff" stroke-width="2"/>
+<text x="292" y="124.5" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+<text x="745" y="42" font-size="13" font-weight="700" fill="#a3245a" text-anchor="middle">Connexion</text>
+<rect x="30" y="118" width="220" height="46" rx="23" fill="#fff" stroke="#bcd5fb" stroke-width="1.4"/>
+<text x="140" y="146" font-size="13" font-weight="700" fill="#0b2a5c" text-anchor="middle">Canton · établissements</text>
+<path d="M140,166 L140,222" fill="none" stroke="#0060F0" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#b)"/>
+<text x="148" y="199" font-size="11.5" font-weight="400" fill="#64748b" text-anchor="start">utilisent</text>
+<rect x="30" y="225" width="220" height="245" rx="14" fill="#fff" stroke="#0060F0" stroke-width="1.8" filter="url(#sh)"/>
+<path d="M44,225 h192 a14,14 0 0 1 14,14 v14 h-220 v-14 a14,14 0 0 1 14,-14 z" fill="#eaf2ff"/>
+<circle cx="46" cy="239" r="4" fill="#f87171"/>
+<circle cx="59" cy="239" r="4" fill="#fbbf24"/>
+<circle cx="72" cy="239" r="4" fill="#34d399"/>
+<text x="140" y="288" font-size="18" font-weight="700" fill="#0b2a5c" text-anchor="middle">Navigateur</text>
+<text x="140" y="307" font-size="12.5" font-weight="400" fill="#64748b" text-anchor="middle">Blazor WebAssembly</text>
+<rect x="45" y="322" width="190" height="34" rx="9" fill="#f5f9ff" stroke="#bcd5fb" stroke-width="1.2"/>
+<text x="140" y="344" font-size="13" font-weight="600" fill="#0b2a5c" text-anchor="middle">Interface AVG2</text>
+<rect x="45" y="368" width="190" height="50" rx="9" fill="#fdf0f5" stroke="#f3b6cc" stroke-width="1.2"/>
+<text x="140" y="389" font-size="13" font-weight="700" fill="#a3245a" text-anchor="middle">Cookie de session</text>
+<text x="140" y="407" font-size="11.5" font-weight="400" fill="#a3245a" text-anchor="middle">HttpOnly · HTTPS seul.</text>
+<circle cx="233" cy="370" r="11" fill="#d33a77" stroke="#fff" stroke-width="2"/>
+<text x="233" y="374.5" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+<text x="140" y="445" font-size="12" font-weight="600" fill="#a3245a" text-anchor="middle">aucun jeton dans le navigateur</text>
+<path d="M140,470 L140,556" fill="none" stroke="#64748b" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#a)"/>
+<text x="148" y="518" font-size="11.5" font-weight="400" fill="#64748b" text-anchor="start">charge</text>
+<rect x="30" y="560" width="220" height="80" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="140.0" y="597.0" font-size="15" font-weight="700" fill="#334155" text-anchor="middle">jsDelivr · Google Fonts</text>
+<text x="140.0" y="617.0" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">Bootstrap · police Roboto</text>
+<rect x="330" y="88" width="600" height="622" rx="22" fill="#f2f7ff" stroke="#9ec3fb" stroke-width="1.5"/>
+<text x="355" y="124" font-size="17" font-weight="700" fill="#0060F0" text-anchor="start">Installation AVG2 · une par canton</text>
+<text x="355" y="146" font-size="12.5" font-weight="400" fill="#64748b" text-anchor="start">Même image Docker · base de données propre · aucune donnée partagée</text>
+<path d="M252,300 L358,300" fill="none" stroke="#0060F0" stroke-width="2" stroke-linejoin="round" marker-start="url(#b)" marker-end="url(#b)"/>
+<text x="305" y="290" font-size="12" font-weight="700" fill="#0b2a5c" text-anchor="middle">HTTPS</text>
+<text x="305" y="318" font-size="11.5" font-weight="400" fill="#64748b" text-anchor="middle">API web</text>
+<rect x="360" y="168" width="540" height="284" rx="14" fill="#fff" stroke="#0060F0" stroke-width="1.8" filter="url(#sh)"/>
+<path d="M374,168 h512 a14,14 0 0 1 14,14 v32 h-540 v-32 a14,14 0 0 1 14,-14 z" fill="url(#hd)"/>
+<text x="380" y="198" font-size="18" font-weight="700" fill="#fff" text-anchor="start">Serveur AVG2</text>
+<text x="882" y="197" font-size="13" font-weight="400" fill="#eaf2ff" text-anchor="end">ASP.NET Core · .NET 10</text>
+<rect x="373" y="228" width="164" height="80" rx="10" fill="#f5f9ff" stroke="#bcd5fb" stroke-width="1.2"/>
+<text x="455.0" y="262" font-size="14" font-weight="700" fill="#0b2a5c" text-anchor="middle">Interface</text>
+<text x="455.0" y="283" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">fournie au navigateur</text>
+<rect x="548" y="228" width="164" height="80" rx="10" fill="#f5f9ff" stroke="#bcd5fb" stroke-width="1.2"/>
+<text x="630.0" y="262" font-size="14" font-weight="700" fill="#0b2a5c" text-anchor="middle">API web</text>
+<text x="630.0" y="283" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">chaque requête contrôlée</text>
+<rect x="723" y="228" width="164" height="80" rx="10" fill="#f5f9ff" stroke="#bcd5fb" stroke-width="1.2"/>
+<text x="805.0" y="262" font-size="14" font-weight="700" fill="#0b2a5c" text-anchor="middle">Autorisations</text>
+<text x="805.0" y="283" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">rôles issus d'AVG2</text>
+<rect x="373" y="318" width="164" height="80" rx="10" fill="#f5f9ff" stroke="#bcd5fb" stroke-width="1.2"/>
+<text x="455.0" y="352" font-size="14" font-weight="700" fill="#0b2a5c" text-anchor="middle">Logique métier</text>
+<text x="455.0" y="373" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">contrôler · calculer</text>
+<rect x="548" y="318" width="164" height="80" rx="10" fill="#f5f9ff" stroke="#bcd5fb" stroke-width="1.2"/>
+<text x="630.0" y="352" font-size="14" font-weight="700" fill="#0b2a5c" text-anchor="middle">Documents</text>
+<text x="630.0" y="373" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">depuis modèles Word</text>
+<rect x="723" y="318" width="164" height="80" rx="10" fill="#fdf0f5" stroke="#f3b6cc" stroke-width="1.2"/>
+<text x="805.0" y="352" font-size="14" font-weight="700" fill="#a3245a" text-anchor="middle">Sessions</text>
+<text x="805.0" y="373" font-size="12" font-weight="400" fill="#a3245a" text-anchor="middle">les jetons restent ici</text>
+<circle cx="883" cy="230" r="11" fill="#d33a77" stroke="#fff" stroke-width="2"/>
+<text x="883" y="234.5" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+<circle cx="883" cy="320" r="11" fill="#d33a77" stroke="#fff" stroke-width="2"/>
+<text x="883" y="324.5" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+<text x="630" y="432" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">Health checks · métriques Prometheus (en option)</text>
+<path d="M635,452 L635,520" fill="none" stroke="#0060F0" stroke-width="1.6" stroke-linejoin="round" marker-start="url(#b)" marker-end="url(#b)"/>
+<text x="625" y="491" font-size="12" font-weight="600" fill="#0b2a5c" text-anchor="end">EF Core</text>
+<path d="M825,452 L825,528" fill="none" stroke="#0060F0" stroke-width="1.6" stroke-linejoin="round" marker-start="url(#b)" marker-end="url(#b)"/>
+<text x="815" y="491" font-size="12" font-weight="600" fill="#0b2a5c" text-anchor="end">système de fichiers</text>
+<rect x="360" y="552" width="160" height="104" rx="12" fill="#fff" stroke="#0060F0" stroke-width="1.5" filter="url(#sh)"/>
+<text x="440" y="585" font-size="15" font-weight="700" fill="#0b2a5c" text-anchor="middle">DbUpdater</text>
+<text x="440" y="607" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">image distincte</text>
+<text x="440" y="626" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">applique les scripts</text>
+<path d="M520,604 L543,604" fill="none" stroke="#0060F0" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#b)"/>
+<path d="M545,536 v130 a90.0,15 0 0 0 180.0,0 v-130" fill="#fff" stroke="#0060F0" stroke-width="1.8" filter="url(#sh)"/>
+<ellipse cx="635.0" cy="536" rx="90.0" ry="15" fill="#eaf2ff" stroke="#0060F0" stroke-width="1.8"/>
+<text x="635.0" y="584" font-size="15" font-weight="700" fill="#0b2a5c" text-anchor="middle">SQL Server</text>
+<text x="635.0" y="608" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">Données métier et de base</text>
+<text x="635.0" y="627" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">Utilisateurs et rôles</text>
+<text x="635.0" y="646" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">Journaux</text>
+<path d="M750,542 a8,8 0 0 1 8,-8 h44 l10,10 h80 a8,8 0 0 1 8,8 v116 a8,8 0 0 1 -8,8 h-134 a8,8 0 0 1 -8,-8 z" fill="#fff" stroke="#0060F0" stroke-width="1.8" filter="url(#sh)"/>
+<text x="825.0" y="584" font-size="15" font-weight="700" fill="#0b2a5c" text-anchor="middle">Stockage</text>
+<text x="825.0" y="608" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">volume persistant</text>
+<text x="825.0" y="627" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">documents, modèles</text>
+<text x="990" y="124" font-size="14" font-weight="700" fill="#334155" text-anchor="start">Fourni par l'exploitant</text>
+<rect x="990" y="160" width="250" height="90" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="1115.0" y="202.0" font-size="15" font-weight="700" fill="#334155" text-anchor="middle">Fournisseur d'identité</text>
+<text x="1115.0" y="222.0" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">du client · OpenID Connect</text>
+<rect x="990" y="290" width="250" height="72" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="1115.0" y="323.0" font-size="15" font-weight="700" fill="#334155" text-anchor="middle">Serveur de messagerie</text>
+<text x="1115.0" y="343.0" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">SMTP</text>
+<rect x="990" y="398" width="250" height="72" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="1115.0" y="431.0" font-size="15" font-weight="700" fill="#334155" text-anchor="middle">Antivirus</text>
+<text x="1115.0" y="451.0" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">en option</text>
+<path d="M902,205 L988,205" fill="none" stroke="#64748b" stroke-width="1.6" stroke-linejoin="round" marker-start="url(#a)" marker-end="url(#a)"/>
+<text x="960" y="196" font-size="11.5" font-weight="600" fill="#334155" text-anchor="middle">Jetons</text>
+<path d="M902,326 L988,326" fill="none" stroke="#64748b" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#a)"/>
+<text x="960" y="317" font-size="11.5" font-weight="600" fill="#334155" text-anchor="middle">E-mails</text>
+<path d="M902,420 L988,434" fill="none" stroke="#64748b" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#a)"/>
+<text x="960" y="416" font-size="11.5" font-weight="600" fill="#334155" text-anchor="middle">Dépôts</text>
+<rect x="990" y="548" width="22" height="16" rx="4" fill="#fff" stroke="#0060F0" stroke-width="1.8"/>
+<text x="1022" y="561" font-size="12.5" font-weight="400" fill="#334155" text-anchor="start">Périmètre de livraison AVG2</text>
+<rect x="990" y="578" width="22" height="16" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="1022" y="591" font-size="12.5" font-weight="400" fill="#334155" text-anchor="start">Externe : exploitant ou tiers</text>
+<circle cx="1001" cy="616" r="9" fill="#d33a77" stroke="#fff" stroke-width="2"/>
+<text x="1001" y="620.5" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+<text x="1022" y="621" font-size="12.5" font-weight="400" fill="#334155" text-anchor="start">Déroulement de la connexion</text>
+<line x1="30" y1="742" x2="1240" y2="742" stroke="#e2e8f0" stroke-width="1"/>
+<circle cx="42.0" cy="772" r="11" fill="#d33a77" stroke="#fff" stroke-width="2"/>
+<text x="42.0" y="776.5" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+<text x="60.0" y="776.5" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Connexion auprès du fournisseur d'identité</text>
+<circle cx="344.5" cy="772" r="11" fill="#d33a77" stroke="#fff" stroke-width="2"/>
+<text x="344.5" y="776.5" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+<text x="362.5" y="776.5" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Le serveur échange le code contre les jetons</text>
+<circle cx="647.0" cy="772" r="11" fill="#d33a77" stroke="#fff" stroke-width="2"/>
+<text x="647.0" y="776.5" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+<text x="665.0" y="776.5" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">E-mail → personne, rôles issus d'AVG2</text>
+<circle cx="949.5" cy="772" r="11" fill="#d33a77" stroke="#fff" stroke-width="2"/>
+<text x="949.5" y="776.5" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+<text x="967.5" y="776.5" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Le navigateur ne reçoit qu'un cookie</text>
+</svg>

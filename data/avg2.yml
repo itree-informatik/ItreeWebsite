@@ -101,6 +101,125 @@ de:
        | CSS Framework | Bootstrap |
        | Komponentenlibrary | Telerik UI for Blazor |
        > **Hinweis:** OpenID Connect wird ausschliesslich als Protokoll für die Anbindung an einen bestehenden Identity Provider des Kunden verwendet. Ein Authorization Server ist nicht Bestandteil des Lieferumfangs, kann jedoch bei Bedarf durch uns konzipiert, integriert oder konfiguriert werden. Die Anbindung an gängige Anbieter wie AGOV oder SwissID ist grundsätzlich möglich und wurde bereits erfolgreich realisiert.
+    - name: "Architektur"
+      title: "Architektur von AVG2"
+      text: |-
+        Die Kapitel «Architektur», «Datenflüsse» und «Sicherheit» beschreiben AVG2 als Produkt. Betrieb und Infrastruktur liegen beim jeweiligen Betreiber. Die eingesetzten Technologien finden Sie im Kapitel «Technologie».
+
+        Alle Kantone erhalten dasselbe Docker-Image. Jeder Kanton hat eine eigene Installation mit eigener Datenbank, Unterschiede zwischen den Kantonen werden über Konfiguration gesteuert. Zwischen den Kantonen gibt es keine gemeinsamen Daten.
+
+        [![Architekturskizze von AVG2: Browser, AVG2-Server mit Datenbank und Dateiablage in einer Installation pro Kanton, externe Systeme des Betreibers und Ablauf der Anmeldung](/images/avg2/architektur-de.svg)](/images/avg2/architektur-de.svg)
+
+        ### Bausteine
+
+        | Baustein | Aufgabe |
+        |---|---|
+        | Browser | Die Oberfläche ist eine Blazor-WebAssembly-Anwendung, die im Browser läuft. Im Browser liegen keine Zugriffstokens, die Sitzung läuft über ein Cookie (siehe Kapitel «Sicherheit»). Zusätzlich lädt der Browser Bootstrap (CSS, JavaScript, Icons) vom CDN jsDelivr mit Subresource Integrity und die Schrift Roboto von Google Fonts. |
+        | Server | ASP.NET Core (.NET 10). Der Server liefert die Oberfläche aus und stellt die Web API bereit. Die Fachlogik, die Berechtigungsprüfung und die Dokumenterzeugung laufen auf dem Server. |
+        | Datenbank | Microsoft SQL Server, Zugriff über Entity Framework Core. |
+        | Dateiablage | Hochgeladene Dokumente, erzeugte Dokumente und Vorlagen liegen in einer Dateiablage (persistentes Volume), die Metadaten in der Datenbank. Benutzer greifen nur über die API auf Dateien zu, nie direkt auf die Ablage. |
+        | Dokumenterzeugung | Verfügungen und weitere Dokumente erzeugt der Server aus Word-Vorlagen (.dotx). |
+
+        ### Externe Systeme
+
+        Folgende Systeme stellt der Betreiber bereit:
+
+        - Identity Provider des Kunden (OpenID Connect) für die Anmeldung
+        - Mailserver (SMTP) für Benachrichtigungen
+        - optional einen Virenscanner, der Uploads vor dem Speichern prüft
+
+        ### Auslieferung und Betrieb
+
+        - Datenbankänderungen werden als versionierte SQL-Skripte ausgeliefert und mit dem Werkzeug DbUpdater eingespielt, das als eigenes Image mitgeliefert wird.
+        - Health-Checks melden Start, Lebendigkeit und Datenbankverbindung. Optional steht ein Prometheus-Endpunkt für Metriken zur Verfügung.
+        - Für Kubernetes liefern wir ein Helm-Chart mit.
+    - name: "Datenflüsse"
+      title: "Datenflüsse in AVG2"
+      text: |-
+        ### Anmeldung und Benutzer
+
+        Die Anmeldung führt vom Browser über den Identity Provider des Kunden zum AVG2-Server. Der Server erhält vom Identity Provider die E-Mail-Adresse der Person und ordnet sie der in AVG2 erfassten Person zu. Rollen und Berechtigungen kommen aus AVG2, nicht vom Identity Provider.
+
+        Der Kanton erfasst die Ansprechpersonen der Betriebe. Die Ansprechperson erfasst und verwaltet die Datenlieferanten ihres Betriebs. Wer sich beim Identity Provider anmeldet, ohne in AVG2 erfasst zu sein, erhält keine Rolle und damit keinen Zugriff.
+
+        ### Erfassung, Verarbeitung und Ausgabe
+
+        | Schritt | Beteiligte | Ablauf |
+        |---|---|---|
+        | Erfassung | Kantonale Mitarbeitende | pflegen Stammdaten, Einstellungen und Vorlagen und steuern die Prozesse |
+        | Erfassung | Betriebe (Ansprechpersonen, Datenlieferanten) | erfassen ihre Grundlagendaten (Kennzahlen wie Stellen, Stunden und Ausbildungsleistungen) und laden Nachweise hoch |
+        | Verarbeitung | AVG2-Server | prüft und berechnet die Daten, erzeugt daraus Dokumente und legt diese in der Dateiablage ab |
+        | Ausgabe | Betriebe | laden ihre Dokumente in AVG2 herunter, jeder Download wird protokolliert |
+        | Ausgabe | Mailserver des Betreibers | versendet Benachrichtigungen per E-Mail, jeder Versand wird protokolliert |
+        | Ausgabe | Kanton | nutzt Auswertungen in der Applikation |
+
+        ### Personendaten
+
+        Zu Benutzern speichert AVG2 Name, Vorname, E-Mail-Adresse, Adresse, Telefon, Sprache, Rollen und Zeitpunkt der letzten Anmeldung. Für Auszubildende gibt es keine Felder für Personendaten, erfasst werden nur Kennzahlen. Hochgeladene Dokumente können je nach Inhalt Personendaten enthalten.
+    - name: "Sicherheit"
+      title: "Sicherheitsmechanismen in AVG2"
+      text: |-
+        ### Anmeldung und Sitzung
+
+        - Die Anmeldung läuft serverseitig über OpenID Connect mit dem Authorization Code Flow. Standardmässig nutzt AVG2 Pushed Authorization Requests, wenn der Identity Provider sie anbietet.
+        - Die Tokens bleiben auf dem Server im Sitzungsspeicher. Der Browser erhält nur ein Cookie mit einem Sitzungsschlüssel. Das Cookie ist HttpOnly und wird nur über HTTPS gesendet.
+        - Die Sitzung läuft nach Inaktivität ab (standardmässig nach 10 Minuten, durch den Betreiber einstellbar). Bei Aktivität verlängert sie sich.
+        - Beim Abmelden wird das Refresh-Token beim Identity Provider widerrufen.
+        - Die Zuordnung zur Person erfolgt über die E-Mail-Adresse aus dem Identity Provider. Voraussetzung ist, dass der Identity Provider verifizierte, eindeutige E-Mail-Adressen liefert. Dafür ist der Betreiber des Identity Providers verantwortlich.
+
+        ### Berechtigungen
+
+        - Der Server prüft jede API-Anfrage auf Anmeldung und Berechtigung. Ausgenommen sind nur wenige Endpunkte ohne geschützte Daten, etwa für An- und Abmeldung und Health-Checks. Massgebend ist die Prüfung auf dem Server, Prüfungen im Browser steuern nur die Anzeige.
+        - Jeder geschützte Endpunkt muss in der Berechtigungsverwaltung der Datenbank registriert sein. Anfragen an einen nicht registrierten Endpunkt werden abgelehnt.
+        - Rollen erhalten Berechtigungspakete mit einer Stufe: Lesen, Schreiben, erweitert oder Administration.
+        - Bei betriebsbezogenen Daten prüft der Server zusätzlich, ob die Person für diesen Betrieb berechtigt ist: über eine Rolle am Betrieb selbst oder an seiner Trägerschaft.
+        - Rollen und Berechtigungspakete richtet jeder Kanton in der Applikation selbst ein.
+
+        ### Eingaben
+
+        - Alle Eingaben werden im Browser und auf dem Server mit denselben Regeln validiert. Der Server lehnt ungültige Daten auch dann ab, wenn der Browser umgangen wird.
+        - Textfelder mit HTML (z. B. E-Mail-Vorlagen, Hilfetexte) prüft der Server beim Speichern gegen eine Liste erlaubter Tags und Attribute. Die Liste ist in den Einstellungen anpassbar. Standardmässig enthält sie keine Skripte, keine eingebetteten Frames und keine Event-Handler. Links und Bildquellen sind nur mit sicheren Schemata erlaubt (z. B. https).
+        - Datenbankzugriffe laufen über Entity Framework Core mit parametrisierten Abfragen, auch beim Aufruf gespeicherter Prozeduren.
+
+        ### Dateien
+
+        - Die erlaubten Dateiendungen sind pro Dokumenttyp serverseitig festgelegt, nicht vom Browser.
+        - Optional prüft ein Virenscanner jeden Upload vor dem Speichern (siehe Kapitel «Architektur»).
+        - Lesen, Bearbeiten, Hochladen und Löschen sind pro Rolle und Dokumenttyp berechtigt. Der Server prüft dies bei jedem Zugriff, beim Download zusätzlich mit Bezug auf den Betrieb.
+        - Jeder Download eines Dokuments wird mit Person, Rolle und Zeitpunkt protokolliert. Ausgenommen sind Word-Vorlagen.
+
+        ### Nachvollziehbarkeit
+
+        - Die Stammdaten und die Daten der Betriebe speichern, wer sie wann erfasst und zuletzt geändert hat.
+        - Die Grundlagendaten der Betriebe werden mit Status und Begründung historisiert. Stammdaten werden pro Jahr eingefroren. Frühere Verfügungen und Abrechnungen bleiben damit nachvollziehbar.
+        - Ein Applikationsprotokoll (Serilog) schreibt in die Datenbank und als JSON auf die Konsole, mit einer Trace-ID pro Anfrage. Berechtigte Rollen sehen es in der Applikation.
+        - Der E-Mail-Versand wird mit Empfänger, Betreff, Status und auslösender Person protokolliert.
+        - Bei unerwarteten Fehlern erhält der Browser nur eine allgemeine, übersetzte Fehlermeldung. Die Details stehen nur im Protokoll.
+
+        ### Plattform
+
+        - Die TLS-Terminierung liegt beim Betreiber vor der Applikation.
+        - Mit dem Helm-Chart läuft der Container als Benutzer ohne Root-Rechte, ohne Privilege Escalation, ohne Linux-Capabilities, mit dem Seccomp-Profil RuntimeDefault und ohne Kubernetes-API-Token.
+        - Zugangsdaten (Datenbank, Identity Provider, SMTP) werden als Umgebungsvariablen bzw. Kubernetes-Secret übergeben, nicht im Image.
+
+        ### Abhängigkeiten
+
+        Für jedes Release erzeugen wir eine SBOM, die in Dependency-Track auf bekannte Schwachstellen geprüft wird (Werkzeuge siehe Kapitel «Technologie»). Die für AVG2 verantwortliche Person eines Kantons erhält Einsicht in unser Dependency-Track.
+    - name: "Dokumentation"
+      title: "Dokumentation zu AVG2"
+      text: |-
+        Die Übersicht zeigt, welche Dokumentation es zu AVG2 gibt, für wen sie bestimmt ist und wo sie zu finden ist.
+
+        | Dokumentation | Zielgruppe | Wo | Verantwortung |
+        |---|---|---|---|
+        | Benutzerdokumentation | Alle Benutzer | Mehrsprachige, kontextbezogene Hilfetexte, die der Kanton auf jeder Seite der Leistungserbringer hinterlegen kann | Kanton (Inhalt der Hilfetexte) |
+        | Administratordokumentation | Kantonale Mitarbeitende | Mehrsprachige, kontextbezogene Hilfetexte zu Stammdaten und Einstellungen in der Applikation. itree liefert einen Standardtext, den der Kanton anpassen und ergänzen kann | itree (Standardtext) und Kanton (eigene Anpassungen) |
+        | Release-Informationen | Kantonale Mitarbeitende | In der Applikation. Sie beschreiben die nicht-technischen Funktionsanpassungen jedes Releases | itree |
+        | Technische Dokumentation | Kantone, IT-Betrieb, Prüfer | Diese Seite, öffentlich: Kapitel [«Technologie»](/avg2/#technologie), [«Architektur»](/avg2/#architektur), [«Datenflüsse»](/avg2/#datenfl%25C3%25BCsse) und [«Sicherheit»](/avg2/#sicherheit) | itree |
+        | Installation und Betrieb | IT-Betrieb | README des Helm-Charts auf Englisch, Deutsch und Französisch, im Chart-Paket enthalten | itree |
+        | Abhängigkeiten und Schwachstellen | Verantwortliche Person des Kantons | Dependency-Track von itree: SBOM jedes Releases mit bekannten Schwachstellen. Einsicht erhält die für AVG2 verantwortliche Person eines Kantons | itree |
+        | Schnittstellendokumentation | Kanton | Kantonsspezifische Schnittstellen sind Auftragsarbeiten. Ihre Dokumentation richtet sich nach der Beauftragung | Kanton, ggf. itree |
+        | Fachkonzept | itree | Vorhanden, intern klassifiziert und nicht öffentlich (Geschäftsgeheimnis) | itree |
 
 fr:
   title: "AVG2"
@@ -205,3 +324,122 @@ fr:
        | Framework CSS | Bootstrap |
        | Bibliothèque de composants | Telerik UI for Blazor |
        > **Remarque :** OpenID Connect est utilisé exclusivement comme protocole pour la connexion à un fournisseur d'identité existant du client. Un serveur d'autorisation ne fait pas partie du périmètre de livraison, mais peut être conçu, intégré ou configuré par nos soins si nécessaire. La connexion à des fournisseurs courants tels qu'AGOV ou SwissID est en principe possible et a déjà été réalisée avec succès.
+    - name: "Architecture"
+      title: "Architecture d'AVG2"
+      text: |-
+        Les chapitres « Architecture », « Flux de données » et « Sécurité » décrivent AVG2 en tant que produit. L'exploitation et l'infrastructure relèvent de l'exploitant de chaque installation. Les technologies utilisées figurent au chapitre « Technologie ».
+
+        Tous les cantons reçoivent la même image Docker. Chaque canton dispose de sa propre installation et de sa propre base de données, les différences entre cantons étant gérées par configuration. Aucune donnée n'est partagée entre les cantons.
+
+        [![Schéma d'architecture d'AVG2 : navigateur, serveur AVG2 avec base de données et stockage de fichiers dans une installation par canton, systèmes externes de l'exploitant et déroulement de la connexion](/images/avg2/architektur-fr.svg)](/images/avg2/architektur-fr.svg)
+
+        ### Composants
+
+        | Composant | Rôle |
+        |---|---|
+        | Navigateur | L'interface est une application Blazor WebAssembly exécutée dans le navigateur. Le navigateur ne détient aucun jeton d'accès, la session reposant sur un cookie (voir chapitre « Sécurité »). Il charge en outre Bootstrap (CSS, JavaScript, icônes) depuis le CDN jsDelivr avec Subresource Integrity, ainsi que la police Roboto depuis Google Fonts. |
+        | Serveur | ASP.NET Core (.NET 10). Le serveur fournit l'interface et met à disposition l'API web. La logique métier, le contrôle des autorisations et la génération de documents s'exécutent sur le serveur. |
+        | Base de données | Microsoft SQL Server, accès via Entity Framework Core. |
+        | Stockage de fichiers | Les documents déposés, les documents générés et les modèles sont conservés dans un stockage de fichiers (volume persistant), leurs métadonnées dans la base de données. Les utilisateurs n'accèdent aux fichiers que via l'API, jamais directement au stockage. |
+        | Génération de documents | Le serveur génère les décisions et les autres documents à partir de modèles Word (.dotx). |
+
+        ### Systèmes externes
+
+        Les systèmes suivants sont mis à disposition par l'exploitant :
+
+        - le fournisseur d'identité du client (OpenID Connect), pour la connexion
+        - un serveur de messagerie (SMTP), pour les notifications
+        - en option, un antivirus qui analyse les fichiers déposés avant leur enregistrement
+
+        ### Livraison et exploitation
+
+        - Les modifications de la base de données sont livrées sous forme de scripts SQL versionnés et appliquées avec l'outil DbUpdater, fourni dans une image distincte.
+        - Des health checks couvrent le démarrage, le bon fonctionnement de l'application (liveness) et la connexion à la base de données. En option, un point de terminaison Prometheus met des métriques à disposition.
+        - Pour Kubernetes, nous livrons un chart Helm.
+    - name: "Flux de données"
+      title: "Flux de données dans AVG2"
+      text: |-
+        ### Connexion et utilisateurs
+
+        La connexion passe du navigateur au fournisseur d'identité du client, puis au serveur AVG2. Le fournisseur d'identité transmet au serveur l'adresse e-mail de la personne, que le serveur rattache à la personne enregistrée dans AVG2. Les rôles et les autorisations proviennent d'AVG2, et non du fournisseur d'identité.
+
+        Le canton enregistre les personnes de référence des établissements. Chaque personne de référence enregistre et gère les fournisseurs de données de son établissement. Quiconque se connecte auprès du fournisseur d'identité sans être enregistré dans AVG2 n'obtient aucun rôle, et donc aucun accès.
+
+        ### Saisie, traitement et restitution
+
+        | Étape | Acteurs | Déroulement |
+        |---|---|---|
+        | Saisie | Personnel cantonal | gère les données de base, les paramètres et les modèles, et pilote les processus |
+        | Saisie | Établissements (personnes de référence, fournisseurs de données) | saisissent leurs données (indicateurs tels que postes, heures et prestations de formation) et déposent les justificatifs |
+        | Traitement | Serveur AVG2 | contrôle et calcule les données, génère les documents et les enregistre dans le stockage de fichiers |
+        | Restitution | Établissements | téléchargent leurs documents dans AVG2, chaque téléchargement étant journalisé |
+        | Restitution | Serveur de messagerie de l'exploitant | envoie les notifications par e-mail, chaque envoi étant journalisé |
+        | Restitution | Canton | utilise les évaluations dans l'application |
+
+        ### Données personnelles
+
+        Pour chaque utilisateur, AVG2 enregistre le nom, le prénom, l'adresse e-mail, l'adresse, le téléphone, la langue, les rôles ainsi que la date et l'heure de la dernière connexion. Aucun champ de données personnelles n'est prévu pour les personnes en formation, seuls des indicateurs sont saisis. Selon leur contenu, les documents déposés peuvent contenir des données personnelles.
+    - name: "Sécurité"
+      title: "Mécanismes de sécurité dans AVG2"
+      text: |-
+        ### Connexion et session
+
+        - La connexion s'effectue côté serveur via OpenID Connect, avec l'Authorization Code Flow. Par défaut, AVG2 utilise les Pushed Authorization Requests lorsque le fournisseur d'identité les prend en charge.
+        - Les jetons restent sur le serveur, dans le stockage des sessions. Le navigateur ne reçoit qu'un cookie contenant une clé de session. Ce cookie est HttpOnly et n'est transmis que via HTTPS.
+        - La session expire après une période d'inactivité (10 minutes par défaut, durée paramétrable par l'exploitant). Toute activité la prolonge.
+        - À la déconnexion, le jeton de rafraîchissement (refresh token) est révoqué auprès du fournisseur d'identité.
+        - Le rattachement à la personne se fait par l'adresse e-mail fournie par le fournisseur d'identité. Cela suppose que celui-ci livre des adresses e-mail vérifiées et uniques, ce qui relève de la responsabilité de son exploitant.
+
+        ### Autorisations
+
+        - Le serveur vérifie l'authentification et les autorisations pour chaque requête API. Seuls font exception quelques points de terminaison sans données protégées, notamment pour la connexion, la déconnexion et les health checks. Seul le contrôle effectué sur le serveur fait foi, les contrôles dans le navigateur ne servent qu'à l'affichage.
+        - Chaque point de terminaison protégé doit être enregistré dans la gestion des autorisations de la base de données. Les requêtes vers un point de terminaison non enregistré sont refusées.
+        - Les rôles reçoivent des paquets d'autorisations assortis d'un niveau : lecture, écriture, étendu ou administration.
+        - Pour les données liées à un établissement, le serveur vérifie en outre que la personne est autorisée pour cet établissement : par un rôle au sein de l'établissement lui-même ou de son organisme responsable.
+        - Chaque canton configure lui-même les rôles et les paquets d'autorisations dans l'application.
+
+        ### Saisies
+
+        - Toutes les saisies sont validées selon les mêmes règles dans le navigateur et sur le serveur. Le serveur rejette les données non valides, même si le navigateur est contourné.
+        - Les champs de texte contenant du HTML (p. ex. modèles d'e-mail, textes d'aide) sont contrôlés par le serveur lors de l'enregistrement, sur la base d'une liste de balises et d'attributs autorisés. Cette liste est modifiable dans les paramètres. Par défaut, elle n'admet ni scripts, ni cadres intégrés, ni gestionnaires d'événements. Les liens et les sources d'images ne sont acceptés qu'avec des schémas sûrs (p. ex. https).
+        - Les accès à la base de données passent par Entity Framework Core avec des requêtes paramétrées, y compris pour l'appel de procédures stockées.
+
+        ### Fichiers
+
+        - Les extensions de fichier autorisées sont définies côté serveur pour chaque type de document, et non par le navigateur.
+        - En option, chaque fichier déposé est analysé par un antivirus avant son enregistrement (voir chapitre « Architecture »).
+        - La consultation, la modification, le dépôt et la suppression sont autorisés par rôle et par type de document. Le serveur le vérifie à chaque accès et, pour les téléchargements, également par rapport à l'établissement concerné.
+        - Chaque téléchargement d'un document est journalisé avec la personne, le rôle et l'horodatage, à l'exception des modèles Word.
+
+        ### Traçabilité
+
+        - Les données de base et les données des établissements indiquent qui les a saisies et modifiées en dernier, et à quel moment.
+        - Les données saisies par les établissements sont historisées avec leur statut et une justification. Les données de base sont figées par année, ce qui garantit la traçabilité des décisions et décomptes antérieurs.
+        - Un journal applicatif (Serilog) écrit dans la base de données et sur la console au format JSON, avec un identifiant de trace par requête. Les rôles autorisés peuvent le consulter dans l'application.
+        - Chaque envoi d'e-mail est journalisé avec le destinataire, l'objet, le statut et la personne qui l'a déclenché.
+        - En cas d'erreur inattendue, le navigateur ne reçoit qu'un message d'erreur générique et traduit. Les détails figurent uniquement dans le journal.
+
+        ### Plateforme
+
+        - La terminaison TLS est assurée par l'exploitant, en amont de l'application.
+        - Avec le chart Helm, le conteneur s'exécute sous un utilisateur sans droits root, sans élévation de privilèges, sans capacités Linux, avec le profil Seccomp RuntimeDefault et sans jeton d'accès à l'API Kubernetes.
+        - Les identifiants d'accès (base de données, fournisseur d'identité, SMTP) sont transmis sous forme de variables d'environnement ou de secret Kubernetes, et ne sont pas intégrés à l'image.
+
+        ### Dépendances
+
+        Pour chaque release, nous générons une SBOM dont les composants sont contrôlés dans Dependency-Track quant aux vulnérabilités connues (outils : voir chapitre « Technologie »). La personne responsable d'AVG2 au sein d'un canton obtient un accès en consultation à notre Dependency-Track.
+    - name: "Documentation"
+      title: "Documentation d'AVG2"
+      text: |-
+        Cet aperçu présente la documentation disponible pour AVG2, le public auquel elle s'adresse et l'endroit où la trouver.
+
+        | Documentation | Public cible | Où | Responsabilité |
+        |---|---|---|---|
+        | Documentation utilisateur | Tous les utilisateurs | Textes d'aide multilingues et contextuels, que le canton peut définir sur chaque page destinée aux prestataires | Canton (contenu des textes d'aide) |
+        | Documentation administrateur | Personnel cantonal | Textes d'aide multilingues et contextuels sur les données de base et les paramètres, dans l'application. itree fournit un texte standard que le canton peut adapter et compléter | itree (texte standard) et canton (adaptations propres) |
+        | Notes de version | Personnel cantonal | Dans l'application. Elles décrivent les adaptations fonctionnelles non techniques de chaque release | itree |
+        | Documentation technique | Cantons, exploitation informatique, auditeurs | Cette page, publique : chapitres [« Technologie »](/avg2/#technologie), [« Architecture »](/avg2/#architecture), [« Flux de données »](/avg2/#flux-de-donn%25C3%25A9es) et [« Sécurité »](/avg2/#s%25C3%25A9curit%25C3%25A9) | itree |
+        | Installation et exploitation | Exploitation informatique | README du chart Helm en anglais, en allemand et en français, inclus dans le paquet du chart | itree |
+        | Dépendances et vulnérabilités | Personne responsable du canton | Dependency-Track d'itree : SBOM de chaque release avec les vulnérabilités connues. Accès en consultation pour la personne responsable d'AVG2 au sein d'un canton | itree |
+        | Documentation des interfaces | Canton | Les interfaces spécifiques à un canton sont réalisées sur mandat. Leur documentation dépend du mandat | Canton, le cas échéant itree |
+        | Concept fonctionnel | itree | Existant, classifié interne et non public (secret d'affaires) | itree |

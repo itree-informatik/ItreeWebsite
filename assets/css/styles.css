@@ -36,6 +36,15 @@ body {
     color: var(--color-secondary);
 }
 
+/* Breite Tabellen auf der AVG2-Seite (z. B. Kapitel «Dokumentation») auf schmalen Bildschirmen horizontal scrollbar statt abgeschnitten */
+@media (max-width: 767px) {
+    #avg2 .prose-full table {
+        display: block;
+        overflow-x: auto;
+        max-width: calc(100vw - 2rem);
+    }
+}
+
 .pt-8 {
     padding-top: calc(var(--spacing) * 8)
 }
